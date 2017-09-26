@@ -1,0 +1,5 @@
+The final product is expected to be similar to fully functional, 
+its design is to be a prototype of what the product could be. This 
+will include having the chat bot mimic speech and response, as 
+well as having the bot be able to respond to certain phrases or
+verbs which can indicate whether a user may or may not be able to do a certain action (e.g. be available for meeting). The bot's responses will be integrated in such a way that its responses will seem similar to how a human would respond (within reason).
