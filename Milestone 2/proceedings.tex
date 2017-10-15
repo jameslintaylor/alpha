@@ -59,6 +59,9 @@
 \usepackage{booktabs}
 \usepackage{textcomp}
 
+\usepackage{grffile}
+\usepackage{pdfpages}
+
 % Some optional stuff you might like/need.
 \usepackage{microtype}        % Improved Tracking and Kerning
 % \usepackage[all]{hypcap}    % Fixes bug in hyperref caption linking
@@ -76,7 +79,7 @@
 % Paper metadata (use plain text, for PDF inclusion and later
 % re-using, if desired).  Use \emtpyauthor when submitting for review
 % so you remain anonymous.
-\def\plaintitle{Alpha - A Proposed Meeting Scheduling Applications}
+\def\plaintitle{A Software Survey of Meeting Scheduling Applications}
 \def\plainauthor{Ryan Marks, Nick Morrison, James Taylor, Trong Tran}
 \def\emptyauthor{}
 \def\plainkeywords{Consumer Applications; Calendaring; Novel Interfaces, Natural Language Processing}
@@ -154,73 +157,45 @@
 \category{H.5.m.}{Applied Computing}{Enterprise applications} 
 
 \begin{abstract}
-Alpha is a proposed meeting scheduling application. 
-Existing `meeting request' style approaches have issues when scheduling meetings with more than 5 participants.
-Purpose built meeting schedulers can still be clunky leading to slow responses from participants.
-Our final product will be a functional chatbot effectively mimicking a human focused on scheduling.
-There will be many facets of design to be considered when creating the product, these duties will be divided among the four group members.
+A key use of human communication using computers is to plan in person meetings.
+Often this requires the coordination of many users so many tools have been developed to enable this.
+This report looks at several existing solutions.
 \end{abstract}
 
 \keywords{\plainkeywords}
 
-\section{Topic Overview}
+\section{Doodle Poll}
 
-A common feature of almost all organizations is designated periods of synchronous auditory communication typically called `meetings'.
-When scheduling a meeting it is necessary for all relevant participants to be available for the same block of time.
-This gives rise to the `Meeting Request' a ubiquitous feature of email+calendaring systems which allows a meeting host propose a block of time to a number of participants, who can indicate their availability.
-This methodology falls apart once the meeting has five or more participants because of the likelihood a proposed reschedule has conflicts for another participant.
-We propose a system that will leverage natural language processing to minimize difficulty for users.
+\subsection{Critique}
 
-\section{Existing Products}
+\subsection{High Level Goals}
 
-There are issues in current processes that one has to undergo when responding to meeting invites and planning meetings with others. Tools such as Need To Meet and Google Calendar, though widely used, could be improved on.
+\subsection{Tasks}
 
-Need To Meet, though simple to use on desktop, lacks a mobile friendly site. This causes friction in the interactions necessary to use the app and adds more work for the user; for example, the user now needs to zoom into the website and drag to navigate the input forms. 
+\section{Need To Meet?}
 
-Google Calendar and other systems like it (e.g. Microsoft Outlook) are not the most intuitive to use on desktop. The user creates an event and then edits the event information. When editing the event information there is a guest list where you can enter the email address of all the guests you would like to invite. It is assumed that adding an address to the list would send an invite to the corresponding guest, but nothing happens. Instead, you have to press `'email'' to the right of the guest list for the invitees to be notified of the event. Then, from the email sent to the user, no action can be done. The visual affordance of the main content of the email is a clickable element that would take me to Google Calendar to see more information \textemdash unfortunately hovering over the element does not cause the cursor to change to a pointer, and clicking causes no action. 
+\subsection{Critique}
 
+\subsection{High Level Goals}
 
-\section{Functionality of Final Product}
+\subsection{Tasks}
 
-The final product is expected to be similar to fully functional, 
-its design is to be a prototype of what the product could be. This 
-will include having the chat bot mimic speech and response, as 
-well as having the bot be able to respond to certain phrases or
-verbs which can indicate whether a user may or may not be able to do a certain action (e.g. be available for meeting). The bot's responses will be integrated in such a way that its responses will seem similar to how a human would respond (within reason).
+\section{Google Mail/Calendar?}
 
-\section{Work Breakdown \& Duties}
+\subsection{Critique}
 
-\subsection{Expected work}
+\subsection{High Level Goals}
 
-\subsubsection{Interaction design}
-Interactions in the application will be designed in such a way as to strike an optimal balance between maximizing speed and minimizing unwanted invocations/errors.
-
-\subsubsection{Asset design/creation}
-Assets (icons, sound effects etc...) will be designed to in accordance with industry best practices and design language. Where appropriate.
-
-\subsubsection{Application flow design}
-Application flow will strive to be designed in such a way that the application can be navigated intuitively by as many users as possible.
-
-\subsubsection{Natural language design}
-Choosing keywords/hooks essential to the natural language portion of the application should be made keeping in mind as large of a set of end consumers as possible (these may include non english first language speakers etc.)
-
-\subsubsection{Conversation design}
-Conversations with our chat bot will be designed to be as 'human' as possible. We are not claiming artificial intelligence is a main goal of the project, but we will design the bot to mimic something of that nature.
-
-\subsubsection{Proof of concept implementation}
-Seeing as we are to be providing a proof of concept to demo at the end of this project, we will inevitably need to do some implementation of the design. This may, but is by no means set a frontend implementation, a backend implementation, and api design.
-
-\subsection{Duties}
-
-James Taylor - Interaction design, Asset design/creation, Proof of concept implementation
-
-Ryan Marks - Asset design/creation, Application flow design, Proof of concept implementation
-
-Nick Morrison - Application flow design, Natural language design, Proof of concept implementation
-
-Phillip Tran - Natural language design, Conversation design, Proof of concept implementation
+\subsection{Tasks}
 
 
+\section{Outlook?}
+
+\subsection{Critique}
+
+\subsection{High Level Goals}
+
+\subsection{Tasks}
 
 
 % BALANCE COLUMNS
@@ -230,6 +205,8 @@ Phillip Tran - Natural language design, Conversation design, Proof of concept im
 % References must be the same font size as other body text.
 \bibliographystyle{SIGCHI-Reference-Format}
 \bibliography{sample}
+
+
 
 \end{document}
 
