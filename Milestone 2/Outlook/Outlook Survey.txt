@@ -1,0 +1,11 @@
+Outlook Survey
+
+Microsoft Outlook is an application which acts as a desktop email manager on the front. Outlook takes an existing email address and once added into the Microsoft Outlook registry, it allows the user to manage their emails, calenders and other various smaller actions (such as todo lists and journals). In addition to this, a user can use Microsoft's servers (Microsoft Exchange Server) to allow multiple users to access shared applications (email and calender) or contact each other via Skype meeting.
+
+To a new user, Outlook is similar to any Microsoft Office product where many of the options will be at the taskbar at the top, all categorized in their own particular category. This can be challenging for any users who are not familar with the Office application family, as there are many different categories that require searching. In addition to this, users may have a hard time knowing what each option does initially, which may cause users to be overwhelmed with the vast amount of options. Fortunately this is alleviated with a search function where Outlook will return results similar to what the user is looking for (e.g. searching for calender will return options regarding calender) as well each option has a brief description of what it does when it is hovered over.
+
+Some of the few high level goals that Outlook can help a user achieve is date/meeting management and email management.
+
+For date/meeting management, Outlook allows one to set up a calender between users through the Microsoft Exchange Server. After setting up the calender, all users with access to the calender can set up meetings and/or notifications for important dates like appointments. In addition to this, if there are many important dates, a user can efficiently check their dates through the schedule view.
+
+For email management, similar to the meeting management, Outlook allows a user to manage their own personal email as well as a shared email server where users can send emails within the server; this allows users to find important people to email, as they will spend less time searching for the email address.
