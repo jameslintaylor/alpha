@@ -155,7 +155,7 @@
 \maketitle
 
 \category{H.5.m.}{Applied Computing}{Enterprise applications} 
-
+p
 \begin{abstract}
 A key use of human communication using computers is to plan in person meetings.
 Often this requires the coordination of many users so many tools have been developed to enable this.
@@ -166,11 +166,71 @@ This report looks at several existing solutions.
 
 \section{Doodle Poll}
 
+\subsection{Description}
+A scheduling system such as Doodle strives primarily to achieve one
+thing: Have a group of participants reach an agreement on a time and
+place to meet.
+
+As such, there are two primary tasks a user of the system will want
+to accomplish: Creating a new event and Responding to an event
+invitation. This critique will focus on those two tasks.
+
 \subsection{Critique}
+\subsubsection{Creating a new event}
 
-\subsection{High Level Goals}
+From a new user's perspective, Doodle does a good job at keeping its
+design language (button style, icon choice etc.) in accordance with
+popular modern practice. The homepage [[https://beta.doodle.com]]
+lists only a few options with the most likely next step (Create a
+Doodle/Create Doodle poll) made clearly the most prevalent among
+them.
 
-\subsection{Tasks}
+\includegraphics{doodle/index.png}
+
+A text entry field inhabited by the "What's the occasion"
+placeholder gives is given immediate focus upon loading the
+page. There may be some unhelpful redundancy between the two
+separate "Create Doodle poll" buttons made available. Both fulfill
+nearly the exact same functionality (the difference being that the
+button next to the form will populate the "Enter title" field on the
+event creation page with the contents of the "What's the occasion"
+text field.
+
+[[file:create-1.png]]
+
+The first step on the event creation page is to outline some
+information about the occasion. Something lacking here is a clear
+way for a user to cancel the creation of the new event. Simply
+leaving the page or pressing the back button in the browser
+accomplishes this, but this may not be obvious to every user.
+
+The second step presents a dialog for selecting dates for the
+event. Although the creator can select as many days as they like in
+this dialog (these will be the options participants choose from),
+events are effectively limited to single days. Beyond selecting
+multiple adjacent (but still independent), there is no first class
+method for creating an event spanning two or more days. 
+
+[[file:create-2.png]]
+
+After an event has been created, it is given a unique URL that can
+be shared with event invitees. The creator can register to be
+notified of activity within their event and is given control over
+finalizing the date once she/he deems that a sufficient number of
+people have voted.
+
+** Voting on/Responding to an event invitation
+
+Going to an event URL, an invitee is presented with the homepage for
+the event. The event homepage does very little in terms of guiding
+the user towards what they are meant to do. There is a somewhat
+inconspicuous text field with the greyed out placeholder "Enter your
+name" as well as boxes for the user to vote on the proposed
+dates. Doing something as little as giving the name field focus (as
+was done with the Doodle's index) would at least guide a new user in
+the right direction.
+
+[[file:event.png]]
 
 \section{Need To Meet?}
 
@@ -214,3 +274,4 @@ This report looks at several existing solutions.
 %%% mode: latex
 %%% TeX-master: t
 %%% End:
+
