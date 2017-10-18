@@ -53,6 +53,7 @@
 \usepackage{graphics}      % for EPS, load graphicx instead 
 \usepackage[T1]{fontenc}   % for umlauts and other diaeresis
 \usepackage{txfonts}
+\usepackage{float}
 \usepackage{mathptmx}
 \usepackage[pdflang={en-US},pdftex]{hyperref}
 \usepackage{color}
@@ -173,7 +174,11 @@ This report looks at several existing solutions.
 \subsection{Tasks}
 
 \section{Need To Meet?}
-
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth]{{figures/NeedToMeet/Creator_Images/1.png}}
+\caption{Need To Meet Homepage}
+\end{figure}
 \subsection{Critique}
 "Need to Meet?" is a meeting scheduling website that helps users
 enter to select mutually agreeable meeting times. Other than a noticeable 
@@ -188,22 +193,27 @@ There are two high level goals for the website:
 	\item Indicating when you can attend the meeting
 \end{itemize}
 \subsection{Tasks}
-\subsubsection{Creating the Meeting}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth]{{figures/NeedToMeet/HTA.png}}
+\caption{Task Diagram}
+\label{fig:NTM_HTA}
+\end{figure}
+Figure \ref{fig:NTM_HTA} shows the diagram for the major tasks users of "Need to Meet" do. These include: 
 \begin{enumerate}
-	\item Navigate to the website and click "Schedule a Meeting"
-	\includegraphics[width=\columnwidth]{{figures/ntm_create_1.png}}	
-	\item Enter meeting, time, place, duration (optionaly leave email address for contact updates)
-	\includegraphics[width=\columnwidth]{{figures/ntm_create_2.png}}
-	\item Schedule timeslots using a calendar interface and optionally
-	invite people by email via the website or invite through a generated url
-	\includegraphics[width=\columnwidth]{{figures/ntm_create_3.png}}
+\item Creating a Meetup Event to get availabilities of attendees
+\begin{enumerate}
+\item Click schedule a meeting
+\item Enter meeting title and duration, optionally add email for correspondance
+\item Using a calendar interface select the dates and times (optionally 
+send people invites through the website)
 \end{enumerate}
-\subsubsection{Indicating Availability}
+
+\item Indicate Availability
 \begin{enumerate}
-	\item Navigate to the website through the provided URL
-	\includegraphics[width=\columnwidth]{{figures/NeedToMeet/Attend_Images/1.png}}
-	\item Select available dates and times, enter name and submit
-	\includegraphics[width=\columnwidth]{{figures/NeedToMeet/Attend_Images/2.png}}
+\item Navigate to the event via the link sent by the host
+\item Indicate availability, enter name, and submit
+\end{enumerate}
 \end{enumerate}
 \section{Google Mail/Calendar?}
 
