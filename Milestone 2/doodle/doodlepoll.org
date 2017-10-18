@@ -17,7 +17,7 @@
   likely next step (Create a Doodle/Create Doodle poll) made clearly
   the most prevalent among them.
 
-  [[file:index.png][https://beta.doodle.com]]
+  [[file:index.png]]
 
   A text entry field inhabited by the "What's the occasion"
   placeholder gives is given immediate focus upon loading the
@@ -28,7 +28,7 @@
   event creation page with the contents of the "What's the occasion"
   text field.
 
-  [[file:create-1.png][https://beta.doodle.com/create]]
+  [[file:create-1.png]]
  
   The first step on the event creation page is to outline some
   information about the occasion. Something lacking here is a clear
@@ -43,7 +43,7 @@
   multiple adjacent (but still independent), there is no first class
   method for creating an event spanning two or more days. 
 
-  [[file:create-2.png][https://beta.doodle.com/create]]
+  [[file:create-2.png]]
 
   After an event has been created, it is given a unique URL that can
   be shared with event invitees. The creator can register to be
@@ -62,5 +62,5 @@
   was done with the Doodle's index) would at least guide a new user in
   the right direction.
 
-[[file:event.png][event homepage]]
+  [[file:event.png]]
 
