@@ -10,12 +10,12 @@
 
 ** Creating a new event
 
-  From a new user's perspective, Doodle does a good job at keeping
-  it's design language (button style, icon choice etc.) in accordance
-  with popular modern practice. The homepage
-  [[https://beta.doodle.com]] lists only a few options with the most
-  likely next step (Create a Doodle/Create Doodle poll) made clearly
-  the most prevalent among them.
+  From a new user's perspective, Doodle does a good job at keeping its
+  design language (button style, icon choice etc.) in accordance with
+  popular modern practice. The homepage [[https://beta.doodle.com]]
+  lists only a few options with the most likely next step (Create a
+  Doodle/Create Doodle poll) made clearly the most prevalent among
+  them.
 
   [[file:index.png]]
 
