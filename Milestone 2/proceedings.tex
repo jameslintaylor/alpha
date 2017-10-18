@@ -167,26 +167,47 @@ This report looks at several existing solutions.
 
 \section{Doodle Poll}
 
-\subsection{Description}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth]{{doodle/index.png}}
+\caption{Doodle homepage}
+\end{figure}
+
+Doodle is an event scheduling website that focuses on giving invitees the option to vote on event dates and times. With each invitee able to vote up time slots suitable to their availability, the event organizer can find the least conflicting time slot.
+
+\subsection{High Level Goals}
+
 A scheduling system such as Doodle strives primarily to achieve one
 thing: Have a group of participants reach an agreement on a time and
 place to meet.
 
-As such, there are two primary tasks a user of the system will want
-to accomplish: Creating a new event and Responding to an event
-invitation. This critique will focus on those two tasks.
+\subsection{Tasks}
 
-\subsection{Critique}
-\subsubsection{Creating a new event}
+There are two major tasks users of the system will want
+to accomplish:
+
+\begin{itemize}
+\item Creating a new event
+\item Responding to an event invitation
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth]{{doodle/hta.png}}
+\caption{Task Diagram}
+\label{fig:DOOD_HTA}
+\end{figure}
+Figure \ref{fig:DOOD_HTA} shows the diagram for the major tasks users of "Doodle" perform.
+
+This critique will focus on these tasks.
+
+\subsection{Creating a new event}
 
 From a new user's perspective, Doodle does a good job at keeping its
 design language (button style, icon choice etc.) in accordance with
-popular modern practice. The homepage [[https://beta.doodle.com]]
-lists only a few options with the most likely next step (Create a
-Doodle/Create Doodle poll) made clearly the most prevalent among
-them.
-
-\includegraphics[width=\columnwidth]{doodle/index.png}
+popular modern practice. The homepage lists only a few options with
+the most likely next step (Create a Doodle/Create Doodle poll) made
+clearly the most prevalent among them.
 
 A text entry field inhabited by the "What's the occasion"
 placeholder gives is given immediate focus upon loading the
@@ -197,7 +218,11 @@ button next to the form will populate the "Enter title" field on the
 event creation page with the contents of the "What's the occasion"
 text field.
 
-\includegraphics[width=\columnwidth]{doodle/create-1.png}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth]{{doodle/create-1.png}}
+\caption{Create event dialog}
+\end{figure}
 
 The first step on the event creation page is to outline some
 information about the occasion. Something lacking here is a clear
@@ -212,7 +237,11 @@ events are effectively limited to single days. Beyond selecting
 multiple adjacent (but still independent), there is no first class
 method for creating an event spanning two or more days. 
 
-\includegraphics[width=\columnwidth]{doodle/create-2.png}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth]{{doodle/create-2.png}}
+\caption{Create event dialog}
+\end{figure}
 
 After an event has been created, it is given a unique URL that can
 be shared with event invitees. The creator can register to be
@@ -220,7 +249,7 @@ notified of activity within their event and is given control over
 finalizing the date once she/he deems that a sufficient number of
 people have voted.
 
-\subsubsection{Voting on/Responding to an event invitation}
+\subsection{Voting on/Responding to an event invitation}
 
 Going to an event URL, an invitee is presented with the homepage for
 the event. The event homepage does very little in terms of guiding
@@ -231,7 +260,11 @@ dates. Doing something as little as giving the name field focus (as
 was done with the Doodle's index) would at least guide a new user in
 the right direction.
 
-\includegraphics[width=\columnwidth]{doodle/event.png}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\columnwidth]{{doodle/event.png}}
+\caption{Event homepage}
+\end{figure}
 
 \section{Need To Meet?}
 \begin{figure}[h]
@@ -259,7 +292,7 @@ There are two high level goals for the website:
 \caption{Task Diagram}
 \label{fig:NTM_HTA}
 \end{figure}
-Figure \ref{fig:NTM_HTA} shows the diagram for the major tasks users of "Need to Meet" do. These include: 
+Figure \ref{fig:NTM_HTA} shows the diagram for the major tasks users of "Need to Meet" perform. These include: 
 \begin{enumerate}
 \item Creating a Meetup Event to get availabilities of attendees
 \begin{enumerate}
