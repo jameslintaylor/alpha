@@ -1,0 +1,21 @@
+#+TITLE: Milestone 2 HTA Diagrams Group 11
+#+author: marks2, morrin2, trantp2, taylojlp
+
+* Doodle
+
+[[file:doodle/hta.png]]
+
+* Neet to meet
+
+[[file:figures/NeedToMeet/HTA_attend.png]]
+
+[[file:figures/NeedToMeet/HTA_host.png]]
+
+* GSuite
+
+[[file:google/Google HTA.png]]
+
+* Outlook 365
+
+[[file:Outlook/Create_Meeting.png]]
+
