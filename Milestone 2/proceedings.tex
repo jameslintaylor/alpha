@@ -156,11 +156,11 @@
 \maketitle
 
 \category{H.5.m.}{Applied Computing}{Enterprise applications} 
-p
+
 \begin{abstract}
 A key use of human communication using computers is to plan in person meetings.
 Often this requires the coordination of many users so many tools have been developed to enable this.
-This report looks at several existing solutions.
+This report looks at several existing solutions to gain insight into the design of a new system towards the same goals.
 \end{abstract}
 
 \keywords{\plainkeywords}
@@ -185,11 +185,6 @@ to accomplish.
 \item Creating a new event
 \item Responding to an event invitation
 \end{itemize}
-
-
-Figure \ref{fig:DOOD_HTA} shows the diagram for the major tasks users of "Doodle" perform.
-
-This critique will focus on these tasks.
 
 \subsection{Creating a new event}
 
@@ -255,7 +250,7 @@ There are two high level goals for the website:
 	\item Indicating when you can attend the meeting
 \end{itemize}
 \subsection{Tasks}
-Figure \ref{fig:NTM_HTA} shows the diagram for the major tasks users of "Need to Meet" perform. These include: 
+The major tasks users of "Need to Meet" perform include: 
 \begin{enumerate}
 \item Creating a Meetup Event to get availabilities of attendees
 \item Click schedule a meeting
@@ -263,7 +258,7 @@ Figure \ref{fig:NTM_HTA} shows the diagram for the major tasks users of "Need to
 \item Using a calendar interface select the dates and times (optionally 
 send people invites through the website)
 \end{enumerate}
-Figure \ref{fig:NTM_HTA_Attend} shows the diagram for the major tasks meeting attendees do. These include: 
+The major tasks meeting attendees need to perform are: 
 \begin{enumerate}
 \item Navigate to the event via the link sent by the host
 \item Indicate availability, enter name, and submit
@@ -314,8 +309,6 @@ Some of the few high level goals that Outlook can help a user achieve:
 
 \subsection{Date/Meeting Management}
 
-Figure \ref{fig:OUT_MEET_HTA} shows the diagram for the Create Meeting major task of Outlook.
-
 For date/meeting management, Outlook allows one to set up a calender between users through the Microsoft Exchange Server. The steps can be seen through the diagram above.
 \begin{enumerate}
 \item Users may create a subject
@@ -340,8 +333,6 @@ After the meeting details are sent, receipients will be able to respond to the n
 \end{enumerate}
 
 \subsection{Email Management}
-
-Figure \ref{fig:OUT_SEND_HTA} shows the diagram for the Sending Email major task of Outlook.
 
 For email management, Outlook handles users to manage both their personal email as well as a shared mailbox.  The steps can be seen through the diagram above.
 
@@ -375,8 +366,10 @@ After the email is sent (via person email or within the shared mailbox), recipie
 
 For clarity, the diagram does not include a path for Reply, Reply All and Forward because it is essentially the same as the Sending Email diagram.
 
-% BALANCE COLUMNS
 \balance{}
+
+% BALANCE COLUMNS
+\newpage
 
 % REFERENCES FORMAT
 % References must be the same font size as other body text.
@@ -385,33 +378,26 @@ For clarity, the diagram does not include a path for Reply, Reply All and Forwar
 
 \section{Appendix}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{{doodle/index.png}}
 \label{fig:DOOD_index}
 \caption{Doodle homepage}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{{doodle/hta.png}}
-\caption{Task Diagram}
-\label{fig:DOOD_HTA}
-\end{figure}
-
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{{doodle/create-2.png}}
 \caption{Create event dialog}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{{doodle/event.png}}
 \caption{Event homepage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{{figures/NeedToMeet/Creator_Images/1.png}}
 \caption{Need To Meet Homepage}
@@ -419,61 +405,35 @@ For clarity, the diagram does not include a path for Reply, Reply All and Forwar
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\columnwidth]{{figures/NeedToMeet/HTA_host.png}}
-\caption{Task Diagram}
-\label{fig:NTM_HTA_Host}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{{figures/NeedToMeet/HTA_attend.png}}
-\caption{Task Diagram}
-\label{fig:NTM_HTA_Attend}
-\end{figure}
-
-\begin{figure}[h]
-\centering
 \includegraphics[width=\columnwidth]{{Outlook/Critique_Picture.png}}
 \caption{Outlook has many options, which can be overwhelming if a user has no experience in using Microsoft Office type applications}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{{Outlook/Create_Meeting.png}}
-\caption{Task Diagram}
-\label{fig:OUT_MEET_HTA}
-\end{figure}
-
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{{Outlook/New_Meeting_Schedule.png}}
 \caption{New Meeting Scheduling}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{{Outlook/Meeting_Request_Response.png}}
 \caption{Meeting Request Response}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{{Outlook/Sending_Email.png}}
-\caption{Task Diagram}
-\label{fig:OUT_SEND_HTA}
-\end{figure}
-
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{{Outlook/Email_Send.png}}
 \caption{Meeting Request Response}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{{Outlook/Email_Reply.png}}
 \caption{Meeting Request Response}
 \end{figure}
+
+\balance{}
 
 \end{document}
 
