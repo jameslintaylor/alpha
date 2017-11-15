@@ -1,0 +1,20 @@
+Primary Persona
+
+	Sally Sue
+		Toronto, ON
+		20 Years Old
+		Student At McMaster University
+
+		Persona Story:
+
+		"I've got so got 3 midterms and 2 assignments this week and I want to be able to to go all these clubs at McMaster. I only slept 3 hours yesterday. This is fine."
+
+		Sally Sue is a 20 year old McMaster University student, living in Toronto, ON Canada her whole life. Throughout her life she has made it her goal to always hangout with her friends regularily and ensure that any work assigned to her is done punctually as well as with diligence. A majority of Sally's time is spent on the computer, using all the latest web applications such as Facebook and Gmail to coordinate with friends as well as plan out her schedule for the upcoming weeks.
+
+		When Sally had first entered into university, she began to take major interests into the surrounding student run clubs the school had to offer. She found herself not only swamped with school work but also with being in charge of some of the student clubs she joined. Despite having many tasks, she very much enjoyed the busy lifestyle she created for herself. However after repeated usage of programs similar to Outlook that caused her eyes to strain, she decided to delve into looking for alternative planning programs that could make planning more simplier and efficient as well as being able to use on the go at libraries or at home.
+
+		Sally's wasn't afraid of this change, she had experienced it before when she decided to make the change from Microsoft Word to LaTeX. She initially rejected the change because of the required time to learn but discovered she much more preferred LaTeX to Word because of ability to format content much more simply. While she often learned how to use programs on her own or through simple instructions or tutorials, she discarded options that required extensive tutorials that would take much time out of her schedule to learn.
+
+		Sally's goals for the new programs she wanted to try were that she wanted to be able to make plans for meetings with relative ease, as well as have notifications on whether the participants have responded or not. She found that sending an email at times was not enough for some people, she also wanted to have periodic reminders for people that had not responded yet. Lastly she wanted to know who was able to attend as well as who could not and who had not responded.
+
+		Sally had found that LetsMeet was able to meet those goals for her; she was able to send meeting invites, receive invites as well receive periodic reminders and see who was attending or not. As well, she found that LetsMeet's options were well defined and easy to use similar to Doodle's methodology, she found she spent little time learning how to use LetsMeet. In addition she found her eyes were not as strained as she did not spend extensive amounts of time trying to plan the meetings anymore. Sally felt her life had gotten a bit less chaotic as she spent less time sending the meeting invites and more time doing other stuff like studying or hanging out with friends. While she realized it obviously wasn't a game changer in her schedule, it was the little victories that she cherished.
