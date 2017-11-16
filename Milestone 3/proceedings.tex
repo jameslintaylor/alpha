@@ -18,7 +18,7 @@
 % ISBN
 \isbn{123-4567-24-567/08/06}
 %Conference
-\conferenceinfo{CHI'16,}{May 07--12, 2016, San Jose, CA, USA}
+\conferenceinfo{CHI`16,}{May 07--12, 2016, San Jose, CA, USA}
 %Price
 \acmPrice{\$15.00}
 
@@ -39,7 +39,7 @@
 % otherwise, or republish, to post on servers or to redistribute to
 % lists, requires prior specific permission and/or a fee. Request
 % permissions from \href{mailto:Permissions@acm.org}{Permissions@acm.org}. \\
-% \emph{CHI '16},  May 07--12, 2016, San Jose, CA, USA \\
+% \emph{CHI `16},  May 07--12, 2016, San Jose, CA, USA \\
 % ACM xxx-x-xxxx-xxxx-x/xx/xx\ldots \$15.00 \\
 % DOI: \url{http://dx.doi.org/xx.xxxx/xxxxxxx.xxxxxxx}
 % }
@@ -60,7 +60,8 @@
 \usepackage{textcomp}
 \usepackage{soul}
 \usepackage{float}
-
+\usepackage[section]{placeins}
+\usepackage[final]{pdfpages}
 % Some optional stuff you might like/need.
 \usepackage{microtype}        % Improved Tracking and Kerning
 % \usepackage[all]{hypcap}    % Fixes bug in hyperref caption linking
@@ -157,7 +158,7 @@
 
 \begin{abstract}
 Alpha is a proposed meeting scheduling application. 
-Existing `meeting request' style approaches have issues when scheduling meetings with more than 5 participants.
+Existing `meeting request` style approaches have issues when scheduling meetings with more than 5 participants.
 Purpose built meeting schedulers can still be clunky leading to slow responses from participants.
 Our final product will be a functional chatbot effectively mimicking a human focused on scheduling.
 There will be many facets of design to be considered when creating the product, these duties will be divided among the four group members.
@@ -169,9 +170,9 @@ There will be many facets of design to be considered when creating the product, 
 
 \subsection{Topic Overview}
 
-A common feature of almost all organizations is designated periods of synchronous auditory communication typically called `meetings'.
+A common feature of almost all organizations is designated periods of synchronous auditory communication typically called `meetings`.
 When scheduling a meeting it is necessary for all relevant participants to be available for the same block of time.
-This gives rise to the `Meeting Request' a ubiquitous feature of email+calendaring systems which allows a meeting host propose a block of time to a number of participants, who can indicate their availability.
+This gives rise to the `Meeting Request` a ubiquitous feature of email+calendaring systems which allows a meeting host propose a block of time to a number of participants, who can indicate their availability.
 This methodology falls apart once the meeting has five or more participants because of the likelihood a proposed reschedule has conflicts for another participant.
 We propose a system that will leverage natural language processing to minimize difficulty for users.
 
@@ -181,7 +182,7 @@ There are issues in current processes that one has to undergo when responding to
 
 Need To Meet, though simple to use on desktop, lacks a mobile friendly site. This causes friction in the interactions necessary to use the app and adds more work for the user; for example, the user now needs to zoom into the website and drag to navigate the input forms. 
 
-Google Calendar and other systems like it (e.g. Microsoft Outlook) are not the most intuitive to use on desktop. The user creates an event and then edits the event information. When editing the event information there is a guest list where you can enter the email address of all the guests you would like to invite. It is assumed that adding an address to the list would send an invite to the corresponding guest, but nothing happens. Instead, you have to press `'email'' to the right of the guest list for the invitees to be notified of the event. Then, from the email sent to the user, no action can be done. The visual affordance of the main content of the email is a clickable element that would take me to Google Calendar to see more information \textemdash unfortunately hovering over the element does not cause the cursor to change to a pointer, and clicking causes no action. 
+Google Calendar and other systems like it (e.g. Microsoft Outlook) are not the most intuitive to use on desktop. The user creates an event and then edits the event information. When editing the event information there is a guest list where you can enter the email address of all the guests you would like to invite. It is assumed that adding an address to the list would send an invite to the corresponding guest, but nothing happens. Instead, you have to press ``email`` to the right of the guest list for the invitees to be notified of the event. Then, from the email sent to the user, no action can be done. The visual affordance of the main content of the email is a clickable element that would take me to Google Calendar to see more information \textemdash unfortunately hovering over the element does not cause the cursor to change to a pointer, and clicking causes no action. 
 
 
 \subsection{Functionality of Final Product}
@@ -206,7 +207,7 @@ People invited by text message will receive a message containing the name of the
 the proposed times, and a link to the same web interface as the email.
 For a speedier response, users can reply with a text response to indicate availability.
 Each option will be lettered, and the response will just include the relevant letters.
-Proposing new times, and indicating ``can if necessary'' will not be available over text.
+Proposing new times, and indicating ``can if necessary`` will not be available over text.
 
 \subsection{Calling of Meeting}
 Once all invitees have responded the host will be informed 
@@ -231,7 +232,7 @@ Application flow will strive to be designed in such a way that the application c
 Choosing keywords/hooks essential to the natural language portion of the application should be made keeping in mind as large of a set of end consumers as possible (these may include non english first language speakers etc.)
 
 \item{\textbf{Conversation design}}
-Conversations with our chat bot will be designed to be as 'human' as possible. We are not claiming artificial intelligence is a main goal of the project, but we will design the bot to mimic something of that nature.
+Conversations with our chat bot will be designed to be as `human` as possible. We are not claiming artificial intelligence is a main goal of the project, but we will design the bot to mimic something of that nature.
 
 \item{\textbf{Proof of concept implementation}}
 Seeing as we are to be providing a proof of concept to demo at the end of this project, we will inevitably need to do some implementation of the design. This may, but is by no means set a frontend implementation, a backend implementation, and api design.
@@ -273,19 +274,19 @@ to accomplish.
 
 \subsubsection{Creating a new event}
 
-From a new user's perspective, Doodle does a good job at keeping its
+From a new user`s perspective, Doodle does a good job at keeping its
 design language (button style, icon choice etc.) in accordance with
 popular modern practice. The homepage lists only a few options with
 the most likely next step (Create a Doodle/Create Doodle poll) made
 clearly the most prevalent among them.
 
-A text entry field inhabited by the "What's the occasion"
+A text entry field inhabited by the "What`s the occasion"
 placeholder gives is given immediate focus upon loading the
 page. There may be some unhelpful redundancy between the two
 separate "Create Doodle poll" buttons made available. Both fulfill
 nearly the exact same functionality (the difference being that the
 button next to the form will populate the "Enter title" field on the
-event creation page with the contents of the "What's the occasion"
+event creation page with the contents of the "What`s the occasion"
 text field).
 
 The first step on the event creation page is to outline some
@@ -315,7 +316,7 @@ the user towards what they are meant to do. There is a somewhat
 inconspicuous text field with the greyed out placeholder "Enter your
 name" as well as boxes for the user to vote on the proposed
 dates. Doing something as little as giving the name field focus (as
-was done with the Doodle's index) would at least guide a new user in
+was done with the Doodle`s index) would at least guide a new user in
 the right direction.
 
 \subsubsection{Need To Meet?}
@@ -353,7 +354,7 @@ The Google Apps suite offer a great deal of functionality to individuals and org
 The tight integration of the suite offers many opportunities for improved usability.
 Two such apps are Calendar and Inbox, in the tight integration for shared meeting events. 
 
-Calendar presents the user's schedule immediately and keeps it as the main focus of the app.
+Calendar presents the user`s schedule immediately and keeps it as the main focus of the app.
 Interactions are very straightforward, and most day to day calendaring can be done without entering a menu.
 
 Inbox is a very powerful email client focused on using email to get things done.
@@ -365,11 +366,11 @@ Users begin the invitation process by selecting or creating the event for which 
 This model is better than having meeting invites be a separate entity.
 After creating or selecting an event, the user must enter its detail page to make invitations.
 The invitees emails are entered one by one in a text field and invites are sent.
-Not showing invitees from the app's main screen is a reasonable design decision as invites are not a primary feature of Calendar
+Not showing invitees from the app`s main screen is a reasonable design decision as invites are not a primary feature of Calendar
 
 \subsubsection{Responding to a Calendar Invite from Inbox}
 Calendar invites are received as regular emails which are augmented by Inbox.
-When the email is opened, event details are presented and three buttons indicating ``Yes'', ``Maybe'', and ``No''.
+When the email is opened, event details are presented and three buttons indicating ``Yes``, ``Maybe``, and ``No``.
 This system is exceptionally straightforward offers little room for improvement.
 One option to improve the system is to present the invited event in the context of their calendar so conflicts can be identified.
 
@@ -377,7 +378,7 @@ One option to improve the system is to present the invited event in the context 
 
 Microsoft Outlook is an application which acts as a desktop email manager on the front. 
 Outlook takes an existing email address and once added into the Microsoft Outlook registry, it allows the user to manage their emails, calenders and other various smaller actions (such as todo lists and journals). 
-In addition to this, a user can use Microsoft's servers (Microsoft Exchange Server) to allow multiple users to access shared applications (email and calender) or contact each other via Skype meeting.
+In addition to this, a user can use Microsoft`s servers (Microsoft Exchange Server) to allow multiple users to access shared applications (email and calender) or contact each other via Skype meeting.
 
 To a new user, Outlook is similar to any Microsoft Office product where many of the options will be at the taskbar at the top, all categorized in their own particular category. 
 This can be challenging for any users who are not familar with the Office application family, as there are many different categories that require searching. 
@@ -402,7 +403,7 @@ For date/meeting management, Outlook allows one to set up a calender between use
 \item Users may set the meeting as an all day event
 \item Users may enter body text
 \item Users will add recipients for the meeting to be sent to
-\item Meeting organizer will enter all potential attending members' email address
+\item Meeting organizer will enter all potential attending members` email address
 \item Meeting will be sent to all recipients
 \end{enumerate}
 
@@ -456,6 +457,173 @@ This survey has exhibited powerful applications for the organization of meetings
 The simplicity of GSuite and the time selection features of Need to Meet and Doodle offer worthwhile direction to follow.
 There are clear improvements to be made by taking a close examination of the user experience flows.
 We will need to take the same care in designing our product.
+
+
+\section{Personas}
+
+\subsection{Primary Persona}
+\begin{itemize}
+	\item \textbf{Name:} Sally Sue
+	\item \textbf{Location:} Hamilton, ON
+	\item \textbf{Age:} 20
+	\item \textbf{Occupation:} Student At McMaster University
+	\item \textbf{Tagline} ``I`ve got so got 3 midterms and 2 assignments this week and I want to be able to to go all these clubs at McMaster. I only slept 3 hours yesterday. This is fine.''
+\end{itemize}
+
+		Sally Sue is a 20 year old McMaster University student, living in Toronto, ON Canada her whole life. Throughout her life she has made it her goal to always hangout with her friends regularily and ensure that any work assigned to her is done punctually as well as with diligence. A majority of Sally`s time is spent on the computer, using all the latest web applications such as Facebook and Gmail to coordinate with friends as well as plan out her schedule for the upcoming weeks.
+
+		When Sally had first entered into university, she began to take major interests into the surrounding student run clubs the school had to offer. She found herself not only swamped with school work but also with being in charge of some of the student clubs she joined. Despite having many tasks, she very much enjoyed the busy lifestyle she created for herself. However after repeated usage of programs similar to Outlook that caused her eyes to strain, she decided to delve into looking for alternative planning programs that could make planning more simplier and efficient as well as being able to use on the go at libraries or at home.
+
+		Sally`s wasn`t afraid of this change, she had experienced it before when she decided to make the change from Microsoft Word to LaTeX. She initially rejected the change because of the required time to learn but discovered she much more preferred LaTeX to Word because of ability to format content much more simply. While she often learned how to use programs on her own or through simple instructions or tutorials, she discarded options that required extensive tutorials that would take much time out of her schedule to learn.
+
+		Sally`s goals for the new programs she wanted to try were that she wanted to be able to make plans for meetings with relative ease, as well as have notifications on whether the participants have responded or not. She found that sending an email at times was not enough for some people, she also wanted to have periodic reminders for people that had not responded yet. Lastly she wanted to know who was able to attend as well as who could not and who had not responded.
+
+		Sally had found that LetsMeet was able to meet those goals for her; she was able to send meeting invites, receive invites as well receive periodic reminders and see who was attending or not. As well, she found that LetsMeet`s options were well defined and easy to use similar to Doodle`s methodology, she found she spent little time learning how to use LetsMeet. In addition she found her eyes were not as strained as she did not spend extensive amounts of time trying to plan the meetings anymore. Sally felt her life had gotten a bit less chaotic as she spent less time sending the meeting invites and more time doing other stuff like studying or hanging out with friends. While she realized it obviously wasn`t a game changer in her schedule, it was the little victories that she cherished.
+
+\subsection{Secondary Persona}
+\begin{itemize}
+	\item \textbf{Name:} Mark Muller
+	\item \textbf{Location:} Frankfurt, Germany
+	\item \textbf{Age:} 45 
+	\item \textbf{Occupation:} Owner of Vagabund Brewery
+	\item \textbf{Tagline} ``All these new technologies, they are so complicated. I just want to do my job''
+\end{itemize}
+
+Mark Muller is a 45 year old German man and proud owner of the 23 year old established and admired brewery named Vagabund Brewery. Mark`s brewery works on a 6 day basis with Sundays and holidays being closed, as well Mark is often contacted on an international basis, with a quarter of his customers being from North America. Mark`s primary language is German however he has spent enough time conducting business with clients in North America that he speaks English well enough to read and write at greater than beginner level but less than intermediate level. 
+
+Growing up in Frankfurt, Mark had witnessed the creation of one of Europe`s most efficient underground transportation systems in Frankfurt as well as the growth of Frankfurt into a major financial hub. Mark had studied at VLB Berlin (Institute for Fermentation and Biotechnology) as well learned all his successful brewery techniques from his grandfather; with this he also learned to work hard for the days with work and rest well for the days with rest. Because of Mark`s education at VLB Berlin and his grandfather`s teachings, Mark learned at a young age to combine both the old and new techniques to make a fine tasting brew that would stand the tests of time. He was often remarked as a very intelligent man for using both the techniques; Mark often states that "We can learn from the old masters to become new masters".
+
+Despite growing up with new technologies being introduced often, Mark could not keep up due to the high costs of technology and as such never learned extensive knowledge about them. Vagabund brewery operates with computers that from the 90s, where Mark only knows how to simply send an email on Yahoo and use Yahoo`s search engine. As well, Mark suffers from poor eyesight, looking at computer screens for more than 30 minutes causes his eyes to blur. As such, despite Mark being open to combining new techniques to create more efficient techniques, Mark is reluctant to learn about new technologies because of his disability and his minor fear of new technolgies being too complicated for him.
+
+Mark`s close friend Karl who is often trying to introduce him to new ways to integrate him into the technological world, introduced him to LetsMeet. Karl advertised it to Mark as a way to be more efficient at planning meetings with clients as well as a way to spend less time looking at the screen. Mark had given it a try while being worried that his beginner level in computers would be his downfall. However, Mark was pleasantly surprised to find that all of LetsMeet`s options had descriptions on what they did, as well the options seemed to walk Mark through the process of planning his meeting with clients. He was simply happy with being able to plan meetings more efficiently but was even more surprised when LetsMeet updated him on when participants would respond to being able to make meetings and periodically reminded participants to respond; it was a welcome change from having to wait for a response from the client when an email was sent. The most appreciation Mark had was that the system was easy to use and he found himself spending less time looking at the screen.
+
+Mark was estatic Karl had found him a simple and efficient system to use, it was much more informative than an email sent with the meeting information outlined. Karl also agreed to help Mark whenever he didn`t understand a function of LetsMeet; to Mark`s surprise again, he found he often did not need to call Karl for help. Overall, Mark felt much more confident to learn new technologies and was much more happier knowing that clients would receive the meeting invitations and periodic reminders to respond; he would be able to worry less about meetings not being received or information being missed on an email from his Yahoo account.
+
+\subsection{Secondary Persona}
+\begin{itemize}
+	\item \textbf{Name:} Lori Vaudry
+	\item \textbf{Location:} Toronto, Ontario
+	\item \textbf{Age:} 59
+	\item \textbf{Occupation:} Early Retiree (Was an HR/Operations Executive)
+	\item \textbf{Tagline} ``We`re both so busy but we definitely should do lunch sometime!''
+\end{itemize}
+
+Lori grew up in Montreal and learned both English and French, but her English was much stronger because that`s what she spoke at home
+She earned an MBA at McMaster and moved to Toronto once both of her kids were born, but they`ve since moved out to university. 
+In Toronto she worked her way up to an executive job at CIBC.
+At the bank she became skilled with the main path of tools she used regularly outlook expert.
+She wouldn`t typically play with software and preferred to learn from written instructions.
+Her goto way to schedule events was a back and forth of outlook calendar invites; 
+and since Lori was an executive people would generally move other commitments to fit her schedule.
+ 
+Lori was offered a substantial retirement package from the bank and decided to accept the change and retire. 
+Since then she`s picked up a number of new activities.
+She`s got the energy and physical ability to play tennis and the manual dexterity to play piano.
+Scheduling group events like book club with the other busy ladies in her social circle was difficult and her son suggested she try Let`s Meet after using it at University.
+She`s nervous it might be too complicated for her friends who aren`t computer people at all, but it sounds like it would be really useful to keep organized.
+
+Sitting at her kitchen island with her son nearby incase she needs help, Lori opens her MacBook and goes to Lets Meet.
+She needs to schedule next week`s book club at a time that works for everyone.
+The last few meetings were scheduled carelessly and some people had to miss them.
+Opening the web page she just enters the information it asks for, and never has to guess what to do.
+She invites most of the members by email but makes sure to invite Jackie with her phone number because Jackie doesn`t check her email often.
+
+In three days Lori`s gotten responses from the whole club, even Jackie.
+It looks like 7 PM  on Tuesday works for everybody, so she confirms the date, and the whole club is notified.
+The whole experience was way easier than a back and forth with everyone about their availability, and being able to push the date to everyone was really handy
+
+\section{Mockups}
+\subsection{High Fidelity Mockup}
+
+\subsubsection{Event Creation Flow}
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/Home}
+  \caption{Current homepage}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/EventName}
+  \caption{Current event name entry}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/DateSelection}
+  \caption{Current event date selection}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/TimeSelection}
+  \caption{Current event date selection}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/Invitees}
+  \caption{Current event invitation screen}
+\end{figure*}
+\FloatBarrier
+
+\subsubsection{Event Responses}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/EnterEventCode}
+  \caption{Current Optional event code entry for non conventional entry users. Email and Link Clickers will not see this dialogue}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/RSVPEnterName}
+  \caption{Current RSVP name entry}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/RSVPEnterAvailability}
+  \caption{Current RSVP availability entry}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/RSVPResponse}
+  \caption{Current end screen after RSVP entry}
+\end{figure*}
+\FloatBarrier
+
+\subsubsection{Event Time Selection}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/Options}
+  \caption{Current Host options screen}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/ResultsInviteesDialog}
+  \caption{Current Host invitee response dialog}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/Results}
+  \caption{Current Results page}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Mockup/ResultsSelectDialog}
+  \caption{Current Host time confirmation dialog}
+\end{figure*}
+\textbf{Initial Sketches}
+\FloatBarrier
+
+
+\includepdf[pages=-,width=\textwidth]{LetsMeetSketches.pdf}
 
 \balance{}
 
