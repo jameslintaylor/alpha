@@ -186,7 +186,7 @@ Google Calendar and other systems like it (e.g. Microsoft Outlook) are not the m
 
 
 \subsection{Functionality of Final Product}
-\hl{
+
 The final product will offer the following features:
 
 \subsubsection{Creation of Meeting Invite}
@@ -213,7 +213,7 @@ Proposing new times, and indicating ``can if necessary`` will not be available o
 Once all invitees have responded the host will be informed 
 and will have the ability to call the meeting for a certain time.
 Once the host has chosen a time all invitees will be informed by the same means they were invited.
-}
+
 
 \subsection{Work Breakdown \& Duties}
 
@@ -252,7 +252,12 @@ Phillip Tran - Natural language design, Conversation design, Proof of concept im
 \section{Analysis of Existing Solutions}
 
 \subsubsection{Doodle Poll}
-
+\FloatBarrier
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{doodle/hta}
+  \caption{\hl{Doodle Send Invite Plan: Do 1 by doing 1.1-1.3 in order, then do 2 by doing 2.1. Doodle Respond Plan: Do 1, then 2 by doing 2.1 then 2.2}}
+\end{figure*}
 
 Doodle is an event scheduling website that focuses on giving invitees the option to vote on event dates and times. With each invitee able to vote up time slots suitable to their availability, the event organizer can find the least conflicting time slot.
 
@@ -318,8 +323,20 @@ name" as well as boxes for the user to vote on the proposed
 dates. Doing something as little as giving the name field focus (as
 was done with the Doodle`s index) would at least guide a new user in
 the right direction.
-
+\FloatBarrier
 \subsubsection{Need To Meet?}
+\FloatBarrier
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{figures/NeedToMeet/HTA_host}
+  \caption{\hl{Need To Meet Create Event Plan: Perform 1 by doing 1.1-1.3 in order}}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{figures/NeedToMeet/HTA_attend}
+  \caption{\hl{Need To Meet Indicate Availability Plan: Perform 2 by doing 2.1 then 2.2}}
+\end{figure*}
 
 \subsubsection{Critique}
 "Need to Meet?" is a meeting scheduling website that helps users
@@ -348,8 +365,15 @@ The major tasks meeting attendees need to perform are:
 \item Navigate to the event via the link sent by the host
 \item Indicate availability, enter name, and submit
 \end{enumerate}
-
+\FloatBarrier
 \subsection{Google Suite}
+\FloatBarrier
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{google/GoogleHTA}
+  \caption{\hl{Gsuite Create Meeting Plan: Perform 1 by doing 1.1-1.3 in order, Perform 2 by doing 2.1 and repeating 2.2 for each invitee. Gsuite Respond to Invite plan: Do 1, Do 2 by doing whichever of 2.1-2.3 is appropriate}}
+\end{figure*}
+
 The Google Apps suite offer a great deal of functionality to individuals and organizations.
 The tight integration of the suite offers many opportunities for improved usability.
 Two such apps are Calendar and Inbox, in the tight integration for shared meeting events. 
@@ -373,9 +397,9 @@ Calendar invites are received as regular emails which are augmented by Inbox.
 When the email is opened, event details are presented and three buttons indicating ``Yes``, ``Maybe``, and ``No``.
 This system is exceptionally straightforward offers little room for improvement.
 One option to improve the system is to present the invited event in the context of their calendar so conflicts can be identified.
-
+\FloatBarrier
 \subsection{Outlook}
-
+\FloatBarrier
 Microsoft Outlook is an application which acts as a desktop email manager on the front. 
 Outlook takes an existing email address and once added into the Microsoft Outlook registry, it allows the user to manage their emails, calenders and other various smaller actions (such as todo lists and journals). 
 In addition to this, a user can use Microsoft`s servers (Microsoft Exchange Server) to allow multiple users to access shared applications (email and calender) or contact each other via Skype meeting.
@@ -394,6 +418,12 @@ Some of the few high level goals that Outlook can help a user achieve:
 
 \subsubsection{Date/Meeting Management}
 
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.75\columnwidth]{Outlook/Create_Meeting}
+  \caption{\hl{Outlook Create new meeting plan: In any order Perform 1, optionally 2, 3 and 4 or 5, optionally 6, perform 7 with 7.1 for each recipient, finally 7.1.1 . Outlook Response Plan: Perform 1 and do any of 1.1-1.3}}
+\end{figure*}
+
 For date/meeting management, Outlook allows one to set up a calender between users through the Microsoft Exchange Server.
 \begin{enumerate}
 \item Users may create a subject
@@ -409,6 +439,7 @@ For date/meeting management, Outlook allows one to set up a calender between use
 
 The date/meeting management is handled similarly to sending an email, wherein a user can use many of the features that an email already offers (e.g. creating subjects, body text, adding email recipients), as well it adds in features that help with setting up meeting details (e.g. locations and meeting times).
 After the meeting details are sent, recipients will be able to respond to the notification as an email, check the calender or check meeting minutes (if meeting has occurred).
+
 
 \begin{enumerate}
 \item Open Meeting Email
@@ -450,7 +481,7 @@ After the email is sent (via person email or within the shared mailbox), recipie
 \end{enumerate}
 
 For clarity, the diagram does not include a path for Reply, Reply All and Forward because it is essentially the same as the Sending Email diagram.
-
+\FloatBarrier
 \subsection{Conclusion of Analysis}
 
 This survey has exhibited powerful applications for the organization of meetings.
@@ -532,7 +563,9 @@ In three days Lori`s gotten responses from the whole club, even Jackie.
 It looks like 7 PM  on Tuesday works for everybody, so she confirms the date, and the whole club is notified.
 The whole experience was way easier than a back and forth with everyone about their availability, and being able to push the date to everyone was really handy
 
-\section{Mockups}
+\section{UI Design}
+\subsection{}
+
 \subsection{High Fidelity Mockup}
 
 \subsubsection{Event Creation Flow}
@@ -619,7 +652,6 @@ The whole experience was way easier than a back and forth with everyone about th
   \includegraphics[width=1.75\columnwidth]{Mockup/ResultsSelectDialog}
   \caption{Current Host time confirmation dialog}
 \end{figure*}
-\textbf{Initial Sketches}
 \FloatBarrier
 
 
