@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event</title>
+</head>
+<body>
+<h2>{{ event.name }}</h2>
+<h3>The event will last {{ event.length }}</h3>
+The following time slots are available:
+<ul>
+    {% for start, end in event.slots %}
+        <li>From {{ start }} to {{ end }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
