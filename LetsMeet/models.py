@@ -10,8 +10,8 @@ def make_event(details):
         'name': details['name'],
     }
 
-    event['slots'] = [(startTime + (n) * event['length'],
-                       startTime + (n + 1) * event['length'])
+    event['slots'] = [[startTime + (n) * event['length'],
+                       startTime + (n + 1) * event['length']]
                       for n in range(0, math.floor((endTime - startTime) / event['length']))]
 
     return event

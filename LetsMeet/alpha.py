@@ -1,10 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from models import *
-
-
+from db_helper import setup_db
+from tinydb import Query
 app = Flask(__name__)
-events = {} # Who needs a DB when you've got a globalish variable
 
+events = setup_db('events.json')
 
 @app.route('/')
 def hello_world():
@@ -16,17 +16,14 @@ def new_event():
     if request.method == 'GET':
         return render_template('new_event.html')
     event = make_event(request.form)
-    id = 0 if not events else max(events.keys()) + 1
-    events[id] = event
-
-    return "Created event with id "+str(id)
+    id = events.insert(event)
+    return redirect("/event/"+str(id), code=302)
 
 
 @app.route('/event/<event_id>', methods=['GET'])
 def get_event(event_id):
-    event = events[int(event_id)]
+    event = events.get(eid = int(event_id) )
     return render_template('event.html', event=event)
-
 
 if __name__ == '__main__':
     app.run()
