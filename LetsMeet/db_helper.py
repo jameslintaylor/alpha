@@ -70,7 +70,7 @@ class TimeDeltaSerializer(Serializer):
         return timedelta(*days_seconds)
 
 def setup_db(file):
-    serialization = SerializationMiddleware()
+    serialization = SerializationMiddleware(JSONStorage)
     serialization.register_serializer(DateTimeSerializer(), 'TinyDatetime')
     serialization.register_serializer(DateSerializer(),'TinyDate')
     serialization.register_serializer(TimeDeltaSerializer(),'TinyTimeDelta')

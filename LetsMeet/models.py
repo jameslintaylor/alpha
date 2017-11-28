@@ -7,7 +7,7 @@ def make_event(details):
 
     event = {
         'length': timedelta(hours=float(details['length'])),
-        'name': details['name'],
+        'name': details['eventname'],
     }
 
     event['slots'] = [[startTime + (n) * event['length'],
