@@ -1,0 +1,27 @@
+#progress-indicator-container{
+	overflow-x: hidden;
+	height: 90px;
+	position: relative;
+	width: 100%;  
+  }
+  #progress-indicator{
+	display: block;  
+	position: absolute;  
+	height: 90px;   
+	max-height: 90px;
+	transition: left 0.5s, opacity 1s;  
+	white-space: nowrap;
+  }
+  #progress-indicator img{    
+	margin: 5px;
+	user-select: none;
+  }
+  #progress-indicator img:nth-child(2n+1){
+	opacity: 0.4;
+  }
+  #progress-indicator img.focus{  
+	opacity: 1;
+  }
+  #progress-indicator img:nth-child(n+1){
+	vertical-align: middle;
+  }

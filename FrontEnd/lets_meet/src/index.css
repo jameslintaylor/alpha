@@ -1,5 +1,20 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #97D0EE;
+}
+
+button{
+  margin: 10px;
+  background: #ffff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: #79A9C2;
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+button.big{
+  font-size: 2em;  
 }
