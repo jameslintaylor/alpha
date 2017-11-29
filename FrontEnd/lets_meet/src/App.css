@@ -5,3 +5,11 @@
   cursor: pointer;
   width: 80px;
 }
+
+img.continue, img.back{
+  display: inline;
+  height: 50px;
+}
+img.back{
+  transform: rotate(180deg);
+}

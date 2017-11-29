@@ -1,12 +1,14 @@
 .form-input-text{
 	position: relative;
 	margin-top: 40px;
+	display: inline-block;
+	width: auto;
 }
 .form-input-text input[type="text"]{
 	padding: 20px;
 	border: 4px solid #73A9C5;
 	font-size: 1.2em;
-	width: 100%;
+	width: calc(100% - 50px);
 }
 .form-input-text .hint-text{
 	position: absolute;
