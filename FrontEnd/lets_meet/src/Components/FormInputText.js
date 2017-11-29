@@ -35,7 +35,7 @@ class FormInputText extends React.Component{
 			"top": this.state.text != null && this.state.text.length > 0
 		});
 		return (
-			<div className="form-input-text">			
+			<div className="form-input-text"  style={{...this.props.style,width:this.props.width}}>			
 				<div className={hintClassName}>{this.props.prompt}</div>
 				<input type="text" onChange={this.onChange} onKeyDown={this.onKeyDown}/>				
 			</div>

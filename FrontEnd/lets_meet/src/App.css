@@ -1,0 +1,7 @@
+#top-logo{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  width: 80px;
+}
