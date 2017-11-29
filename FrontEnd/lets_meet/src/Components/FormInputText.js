@@ -28,6 +28,9 @@ class FormInputText extends React.Component{
 		this.setState({
 			text: evt.target.value
 		});
+		if(this.props.onChange){
+			this.props.onChange(evt.target.value);
+		}
 	}
 
 	render(){
@@ -45,7 +48,8 @@ class FormInputText extends React.Component{
 
 FormInputText.propTypes = {
 	prompt: PropTypes.string.isRequired,
-	onDone: PropTypes.func
+	onDone: PropTypes.func,
+	onChange: PropTypes.func
 }
 
 export default FormInputText;
