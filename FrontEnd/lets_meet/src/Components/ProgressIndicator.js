@@ -10,8 +10,10 @@ import './ProgressIndicator.css';
 import {createAction} from 'redux-actions';
 export const INCR_INDICATOR = "INCR_INDICATOR";
 export const DECR_INDICATOR = "DECR_INDICATOR";
-export const ACTION_INCR_INDICATOR = createAction(INCR_INDICATOR);
-export const ACTION_DECR_INDICATOR = createAction(DECR_INDICATOR);
+export const Actions = { 
+	Incr_Indicator : createAction(INCR_INDICATOR),
+	Decr_Indicator : createAction(DECR_INDICATOR)
+}
 export const reducer = (
 	state = {
 		index: 0
