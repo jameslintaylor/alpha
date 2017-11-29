@@ -7,11 +7,11 @@ def make_event(details):
 
     event = {
         'length': timedelta(hours=float(details['length'])),
-        'name': details['name'],
+        'name': details['eventname'],
     }
 
-    event['slots'] = [(startTime + (n) * event['length'],
-                       startTime + (n + 1) * event['length'])
+    event['slots'] = [[startTime + (n) * event['length'],
+                       startTime + (n + 1) * event['length']]
                       for n in range(0, math.floor((endTime - startTime) / event['length']))]
 
     return event
