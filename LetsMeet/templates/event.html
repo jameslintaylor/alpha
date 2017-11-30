@@ -5,20 +5,23 @@
     <title>Event</title>
 </head>
 <body>
-<h2>{{ host_name }} is hosting: {{ event.name }}</h2>
-<h3>The event will last {{ event.length }}</h3>
-{% if user %}
-    Hey {{ user.name }}, the following time slots are available:
-{% else %}
-    Your Name<br>
-    <input type="text" name="username"><br>
-    Contact Method<br>
-    <input type="text" name="contact"><br>    The following time slots are available:
-{% endif %}
-<ul>
-    {% for start, end in event.slots %}
-        <input type="checkbox" name="goodtime" value="{{ start }} to {{ end }}"> From {{ start }} to {{ end }} <br>
-    {% endfor %}
-</ul>
+<form action="" method="post">
+    <h2>{{ host_name }} is hosting: {{ event.name }}</h2>
+    <h3>The event will last {{ event.length }}</h3>
+    {% if user %}
+        Hey {{ user.name }}, the following time slots are available:
+    {% else %}
+        Your Name<br>
+        <input type="text" name="username"><br>
+        Contact Method<br>
+        <input type="text" name="contact"><br>    The following time slots are available:
+    {% endif %}
+    <ul>
+        {% for start, end in event.slots %}
+            <input type="checkbox" name="goodtime" value="{{ start }} to {{ end }}"> From {{ start }} to {{ end }} <br>
+        {% endfor %}
+    </ul>
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>
