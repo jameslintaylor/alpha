@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import PropTypes from 'proptypes';
+import PropTypes from 'prop-types';
 
 import './FormInputText.css';
 
