@@ -226,3 +226,4 @@ TSWLatexianTemp*
 
 # expex forward references with \gathertags
 *-tags.tex
+/FrontEnd/lets_meet/package-lock.json
