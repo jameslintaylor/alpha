@@ -13,3 +13,11 @@ img.continue, img.back{
 img.back{
   transform: rotate(180deg);
 }
+
+
+#process-title{
+  text-align: center;
+  font-size: 3em;
+  color: white;  
+  margin-bottom: 80px;
+}

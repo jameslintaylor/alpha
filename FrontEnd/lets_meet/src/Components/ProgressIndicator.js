@@ -58,7 +58,7 @@ class ProgressIndicator extends React.Component{
 				return res;
 			}			
 		}
-		const left = "calc(50% - "+245 * this.props.index+"px)"; // (this.props.count-1));
+		const left = "calc(50% - 40px -  "+245 * this.props.index+"px)"; // (this.props.count-1));
 		return (
 			<div id="progress-indicator-container">
 				<div id="progress-indicator" style={{left:left}}>	

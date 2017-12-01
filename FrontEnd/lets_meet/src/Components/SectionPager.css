@@ -1,0 +1,11 @@
+#section-pager{	
+	overflow-x: hidden;
+	width: 100vw;
+}
+#section-pager #pager{
+	display: grid;
+	position: absolute;	
+	width: 100vw;
+	grid-template-rows: 100%;
+	transition: 0.5s;
+}

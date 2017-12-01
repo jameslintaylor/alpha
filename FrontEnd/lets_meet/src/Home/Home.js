@@ -11,8 +11,8 @@ class Home extends React.Component{
 	render(){
 		let nav_create = ()=>this.props.push("/create");
 		return (
-			<div className="page">		
-				<div className="container">		
+			<div className="page">
+				<div className="container">	
 					<img src={Logo} alt="logo"/><br/>
 					<button className="big" onClick={nav_create}>Create Event</button><br/>
 					<button>Existing Event</button>
