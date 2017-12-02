@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import CalendarDaysGrid from './CalendarDaysGrid'
 import NavigationBar from './NavigationBar'
 
+import { connect } from 'react-redux'
+import { addDate } from '../actions'
+
 const style = {
   padding: 10,
   width: 410,
@@ -10,16 +13,13 @@ const style = {
   overflow: 'hidden'
 }
 
-const inc = (x) => x + 1
-const dec = (x) => x - 1
-
 // negative friendly modulo
 Number.prototype.mod = function(n) {
     return ((this % n) + n) % n;
 }
 
-const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-const monthAbbrevs = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const monthAbbrevs = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 const numDaysInMonth = (month, year) => (new Date(year, month, 0)).getDate()
 const dayOffsetInMonth = (month, year) => (new Date(year, month - 1, 1)).getDay()
@@ -39,7 +39,7 @@ class Calendar extends React.Component {
     this.state = Object.assign({
       month: now.getMonth(),
       year: now.getFullYear()
-    }, (({ month, year }) => ({ month, year }))(props))
+    }, props)
   }
 
   nextMonth() {
@@ -63,6 +63,10 @@ class Calendar extends React.Component {
   }
 
   render() {
+
+    const addDay = (day) =>
+          this.props.dispatch(addDate(day, this.state.month, this.state.year))
+    
     return (
       <div style={style}>
 
@@ -77,7 +81,7 @@ class Calendar extends React.Component {
         <CalendarDaysGrid
           numDays={numDaysInMonth(this.state.month, this.state.year)}
           dayOffset={dayOffsetInMonth(this.state.month, this.state.year)}
-          onDayClick={(day) => console.log(day)}/>
+          onDayClick={addDay}/>
           
       </div>
     )
@@ -85,7 +89,10 @@ class Calendar extends React.Component {
 }
 
 Calendar.propTypes = {
-  month: PropTypes.number.isRequired
+  month: PropTypes.number,
+  year: PropTypes.number
 }
+
+Calendar = connect()(Calendar)
 
 export default Calendar

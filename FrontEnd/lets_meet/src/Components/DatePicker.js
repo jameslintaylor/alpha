@@ -1,26 +1,23 @@
 import React from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
+
+import Calendar from './Calendar'
+import DateList from './DateList'
 
 import './DatePicker.css';
 
-class DatePicker extends React.Component {
+const DatePicker = ({ onDateAdd, onDateDelete, }) => (
+  <div style={{backgroundColor: 'green', overflow: 'hidden'}}>
+    
+    <div style={{float: 'left', width: 180, height: 360, backgroundColor: 'lightGray'}}>
+      <DateList />
+    </div>
 
-  constructor(props){
-    super(props);
-  }
-
-  componentWillMount(){
-    this.setState({
-      month: 0
-    });
-  }
-
-  render(){
-    return (
-      <div> the coolest </div>
-    )
-  }
-}
+    <div>
+      <Calendar />
+    </div>
+    
+  </div>
+)
 
 export default DatePicker;

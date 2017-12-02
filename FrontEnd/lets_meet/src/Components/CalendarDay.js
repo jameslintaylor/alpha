@@ -6,7 +6,7 @@ const style = {
   width: 50,
   height: 50,
   borderRadius: 4,
-  color: 'white'
+  color: 'white',
 }
 
 const colorSelected = 'hsla(200, 80%, 40%, 1)'
