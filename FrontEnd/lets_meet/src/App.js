@@ -7,6 +7,7 @@ import createHistory from 'history/createBrowserHistory'
 import {ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
 
 import {reducer as progressIndicator} from './Components/ProgressIndicator';
+import {reducer as createEvent} from './Create/reducers';
 
 import Home from './Home/Home';
 import Create from './Create/Create';
@@ -21,7 +22,8 @@ const history = createHistory()
 const store = createStore(
   combineReducers({
     routing: routerReducer,
-    progressIndicator
+    progressIndicator,
+    createEvent
   }),   
   composeEnhancers(applyMiddleware(thunk, routerMiddleware(history)))
 );

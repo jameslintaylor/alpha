@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import ProgressIndicator, {Actions as PIActions} from '../Components/ProgressIndicator.js';
 import SectionPager from '../Components/SectionPager';
 import Section1 from './Section1.js';
+import Section2 from './Section2';
+import Section3 from './Section3';
 
 import Logo from '../images/Logo.svg';
 import './Create.css';
@@ -19,8 +21,8 @@ class Create extends React.Component{
 				<ProgressIndicator count={3}/>
 				<div className="content">
 					<SectionPager>		
+						<Section3/>					
 						<Section1/>
-						<Section1/>					
 					</SectionPager>
 				</div>				
 			</div>

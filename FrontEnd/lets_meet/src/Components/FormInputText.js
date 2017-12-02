@@ -37,10 +37,11 @@ class FormInputText extends React.Component{
 		const hintClassName = classNames("hint-text",{
 			"top": this.state.text != null && this.state.text.length > 0
 		});
+		const type = this.props.type || "text";
 		return (
 			<div className="form-input-text"  style={{...this.props.style,width:this.props.width}}>			
 				<div className={hintClassName}>{this.props.prompt}</div>
-				<input type="text" onChange={this.onChange} onKeyDown={this.onKeyDown}/>				
+				<input type={type} onChange={this.onChange} onKeyDown={this.onKeyDown}/>				
 			</div>
 		)
 	}
@@ -49,7 +50,8 @@ class FormInputText extends React.Component{
 FormInputText.propTypes = {
 	prompt: PropTypes.string.isRequired,
 	onDone: PropTypes.func,
-	onChange: PropTypes.func
+	onChange: PropTypes.func,
+	type: PropTypes.string
 }
 
 export default FormInputText;

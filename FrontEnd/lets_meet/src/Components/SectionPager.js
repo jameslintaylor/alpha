@@ -7,13 +7,35 @@ import './SectionPager.css';
 
 class SectionPager extends React.Component{
 
+	constructor(props){
+		super(props);
+		this.nextSection = this.nextSection.bind(this);
+		this.prevSection = this.prevSection.bind(this);
+	}
+
+	componentWillMount(){
+		window.onpopstate = (event) =>{
+			if(this.props.index > 0){
+				this.props.prevSection();
+			}		
+		}
+	}
+
+	nextSection(){				
+		this.props.nextSection();
+	}
+
+	prevSection(){
+		this.props.prevSection();
+	}
+
 	render(){		
 		const section = (Child,index) => (
 			<div clasname="section" key={index}>
 				{React.cloneElement(Child,{			
 					currentSection: this.props.index,		
-					nextSection: this.props.nextSection,
-					prevSection: this.props.prevSection
+					nextSection: this.nextSection,
+					prevSection: this.prevSection
 				})}				
 			</div>
 		)
