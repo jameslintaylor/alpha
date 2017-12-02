@@ -21,8 +21,8 @@ class Create extends React.Component{
 				<ProgressIndicator count={3}/>
 				<div className="content">
 					<SectionPager>		
-						<Section3/>					
 						<Section1/>
+						<Section3/>					
 					</SectionPager>
 				</div>				
 			</div>

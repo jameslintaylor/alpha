@@ -9,9 +9,9 @@ export const MODIFY_INVITEE = "MODIFY_INVITEE";
 export const Actions = {
 	setMeetingName: createAction(SET_MEETING_NAME),
 	setCreatorEmail: createAction(SET_CREATOR_EMAIL),
-	addInvitee: createAction(ADD_INVITEE,(name,email)=>{name,email}),
+	addInvitee: createAction(ADD_INVITEE,(name,email)=>({name,email})),
 	removeInvitee: createAction(REMOVE_INVITEE,(index)=>index),
-	updateInvitee: createAction(MODIFY_INVITEE,(index)=>index)
+	updateInvitee: createAction(MODIFY_INVITEE,(index,name,email)=>({index,name,email}))
 }
 
 export const reducer = (
@@ -61,12 +61,12 @@ export const reducer = (
 			return {
 				...state,
 				invitees: [
-					...state.invitees.slice(0,action.payload),
+					...state.invitees.slice(0,action.payload.index),
 					{
 						name: action.payload.name,
 						email: action.payload.email
 					},
-					...state.invitees.slice(action.payload+1)
+					...state.invitees.slice(action.payload.index+1)
 				]
 			}
 		default:
