@@ -22,6 +22,7 @@ class Create extends React.Component{
 				<div className="content">
 					<SectionPager>		
 						<Section1/>
+						<Section2/>
 						<Section3/>					
 					</SectionPager>
 				</div>				

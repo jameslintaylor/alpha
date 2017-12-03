@@ -1,21 +1,42 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {push} from 'react-router-redux';
 
 import FormInputText from '../Components/FormInputText';
+import BottomMenuBar from '../Components/BottomMenuBar';
 import {Actions} from './reducers';
 
 import QuestionButton from '../images/Question_Button.svg';
+import ProgressArrow from '../images/Progress_Arrow.svg';
 import PlusIcon from '../images/Plus_Icon.svg';
+import CopyIcon from '../images/Copy.svg';
 
 class Section3 extends React.Component{
 
 	constructor(props){
 		super(props);
 		this.addInvitee = this.addInvitee.bind(this);
+		this.back = this.back.bind(this);
+		this.continue = this.continue.bind(this);
+		this.copyLink = this.copyLink.bind(this);
+	}
+
+	back(){
+		this.props.prevSection();
+	}
+
+	continue(){
+		this.props.push("/");
 	}
 
 	addInvitee(name,email){
 		this.props.addInvitee(name,email);
+	}
+
+	copyLink(evt){
+		this.linkArea.select();
+		document.execCommand("copy");
+		evt.target.focus();
 	}
 
 	render(){
@@ -38,7 +59,19 @@ class Section3 extends React.Component{
 				</div><br/>		
 				<div>
 					{contacts}
-				</div>					
+				</div>		
+				<BottomMenuBar>
+					<img onClick={this.back} alt="back" src={ProgressArrow} className="back" />					
+					<div id="copy-zone">
+						<label>Event link</label>
+						<textarea autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"
+							 rows="1" readOnly ref={(linkArea) => this.linkArea = linkArea}
+							 value="KwB12fE01LiThisIsGibberish78En14"
+							 />							 						
+						<img alt="copy" src={CopyIcon} onClick={this.copyLink} />
+					</div>
+					<button onClick={this.continue}>Done</button>
+				</BottomMenuBar>			
 			</div>
 		)
 	}
@@ -106,4 +139,4 @@ class InviteeInfo extends React.Component{
 
 }
 
-export default connect(mstp,Actions)(Section3);
+export default connect(mstp,{...Actions,push})(Section3);

@@ -1,0 +1,28 @@
+#bottom-menu-bar{
+	box-sizing: border-box;	
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px;
+	position: fixed;
+	z-index: 2;
+	width: 100%;
+	bottom: 0;
+	height: auto;
+	max-height: 200px;
+	/*background: linear-gradient(0deg, #97D0EE 0%, rgba(151,208,238,0.00) 100%);*/
+	overflow: hidden;
+}
+#bottom-menu-bar > *{
+	z-index: 2;
+}
+#bottom-menu-bar:before{
+	content: " ";
+	z-index: 1;
+	background: linear-gradient(0deg, rgba(151, 209, 238, 0.89) 70%, rgba(151,208,238,0.00) 100%);
+	position: absolute;
+	left: -25px;
+	right: -25px;
+	top: 10px;
+	bottom: -25px;	
+	filter: blur(20px);
+}
