@@ -27,7 +27,7 @@ const _styleDisabled = {
 
 const CalendarDay = ({ onClick, disabled, hasSelection, day }) => (
   <div
-    className={!disabled && 'grow-on-hover'}
+    className={!disabled && 'grow-on-hover' || ''}
     onClick={ onClick }
     style={(disabled && _styleDisabled) ||
            (hasSelection && _styleSelected) ||
