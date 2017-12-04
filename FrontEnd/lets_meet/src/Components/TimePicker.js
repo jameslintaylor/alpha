@@ -5,12 +5,21 @@ import TimeSlider from './TimeSlider'
 
 const _style = {
   backgroundColor: "#fff",
-  border: "4px solid #73A9C5"
+  border: "4px solid #73A9C5",
+  height: '100%'
 }
 
 const _labelStyle = {
   width: '100%',
   textAlign: 'center',
+  fontFamily: 'Helvetica',
+  fontSize: 40,
+  color: 'lightGray',
+  paddingTop: 10
+}
+
+const _sliderStyle = {
+  margin: 10
 }
 
 const TimePicker = ({ day, month, year, onPicked, onCancel }) => {
@@ -28,7 +37,7 @@ const TimePicker = ({ day, month, year, onPicked, onCancel }) => {
       <TimeSlider
         onContinue={ (start, end) => onPicked(makeDate(start), makeDate(end)) }
         onCancel={onCancel}
-        style={{margin: 10}} />
+        style={_sliderStyle} />
     </div>
   )
 }

@@ -6,6 +6,13 @@ import NavigationBar from './NavigationBar'
 import { connect } from 'react-redux'
 import { addDate } from '../actions'
 
+import { numDaysInMonth,
+         dayOffsetInMonth,
+         nameForMonth,
+         abbrevForMonth} from './date-utils'
+
+import "./common.css"
+
 const _style = {
   width: '100%',
   height: '100%',
@@ -17,14 +24,6 @@ const _style = {
 Number.prototype.mod = function(n) {
     return ((this % n) + n) % n;
 }
-
-const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-const monthAbbrevs = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
-const numDaysInMonth = (month, year) => (new Date(year, month, 0)).getDate()
-const dayOffsetInMonth = (month, year) => (new Date(year, month - 1, 1)).getDay()
-const nameForMonth = (month) => monthNames[(month - 1).mod(12)]
-const abbrevForMonth = (month) => monthAbbrevs[(month - 1).mod(12)]
 
 // This calendar will hold it's own presentation state (month/year)
 class Calendar extends React.Component {
@@ -61,8 +60,22 @@ class Calendar extends React.Component {
       this.setState({month: this.state.month - 1})
     }
   }
+
+  _isSelected(day, month, year) {
+    let key = `${day}-${month}-${year}`
+    return this.props.selectedDayLookup[key]
+  }
   
   render() {
+
+    const days = [...Array(numDaysInMonth(this.state.month, this.state.year)).keys()]
+          .map(x => x + 1)
+          .map(day => ({
+            day,
+            month: this.state.month,
+            year: this.state.year,
+            selected: this._isSelected.bind(this)(day, this.state.month, this.state.year)
+          }))
 
     return (
       <div style={_style}>
@@ -76,8 +89,9 @@ class Calendar extends React.Component {
         </NavigationBar>
 
         <CalendarDaysGrid
-          numDays={numDaysInMonth(this.state.month, this.state.year)}
+          days={days}
           dayOffset={dayOffsetInMonth(this.state.month, this.state.year)}
+          selectedDates={this.props.selectedDates}
           onDayClick={ (day) => this.props.onDayClick(day, this.state.month, this.state.year)}/>
         
       </div>
@@ -90,4 +104,18 @@ Calendar.propTypes = {
   year: PropTypes.number
 }
 
-export default Calendar
+const toDayLookup = (dates) => dates.reduce((a, { start }) => {
+  let copy = Object.assign({}, a)
+  let day = start.getDate()
+  let month = start.getMonth() + 1
+  let year = start.getFullYear()
+  let key = `${day}-${month}-${year}`
+  copy[key] = true
+  return copy
+}, {})
+
+const mapStateToProps = (state) => ({
+  selectedDayLookup: toDayLookup(state.dates)
+})
+
+export default connect(mapStateToProps)(Calendar)

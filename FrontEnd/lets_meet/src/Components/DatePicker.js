@@ -20,14 +20,14 @@ const _style = {
 const _dateListStyle = {
   position: 'absolute',
   left: 0,
-  width: 200,
+  width: 220,
   height: '100%',
   backgroundColor: 'red'
 }
 
 const _calendarStyle = {
   position: 'absolute',
-  left: 196,
+  left: 216,
   right: 0,
   height: '100%',
   margin: '0 auto',
@@ -86,7 +86,7 @@ class DatePicker extends React.Component {
           <div style={_timePickerStyle}>
               <TimePicker
                   day={this.state.selectedDay}
-                  month={this.state.selectedMonth}
+                  month={this.state.selectedMonth - 1}
                   year={this.state.selectedYear}
                   onPicked={ (start, end) => { this.props.onDateAdd(start, end); this.dismissTimePicker.bind(this)() }}
                   onCancel={this.dismissTimePicker.bind(this)}/>

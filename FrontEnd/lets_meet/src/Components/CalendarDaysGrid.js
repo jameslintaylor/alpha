@@ -2,37 +2,37 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import CalendarDay from './CalendarDay'
 
-const style = {
+const _style = {
   display: 'grid',
   gridTemplateColumns: "50px 50px 50px 50px 50px 50px 50px",
   gridGap: 10,
+  marginTop: -10,
+  marginLeft: 36
 }
 
 const inc = (x) => x + 1
 
-const CalendarDaysGrid = ({ numDays, dayOffset, onDayClick }) => {
+const CalendarDaysGrid = ({ days, dayOffset, onDayClick }) => {
 
-  const daysLastMonth = [...Array(dayOffset).keys()]
+  const disabled = [...Array(dayOffset).keys()]
         .map((_) => (
           <CalendarDay
             day={null}
-            hasSelection={true}
+            disabled={true}
             onClick={null}
             />
         ))
 
-  const days = [...Array(numDays).keys()]
-        .map(inc)
-        .map((day) => (
-          <CalendarDay
-            day={day}
-            hasSelection={false}
-            onClick={() => onDayClick(day)}/>
-        ))
+  const active = days.map(({ day, selected }) => (
+    <CalendarDay
+      day={day}
+      hasSelection={selected}
+      onClick={() => onDayClick(day)}/>
+  ))
 
   return (
-    <div style={{ ...style }} >
-      { daysLastMonth.concat(days) }
+    <div style={_style} >
+      { [ ...disabled, ...active ] }
     </div>
   )
 }

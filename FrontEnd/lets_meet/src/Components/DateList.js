@@ -9,7 +9,8 @@ import { connect } from 'react-redux'
 const _style = {
   backgroundColor: "#fff",
   border: "4px solid #73A9C5",
-  height: '100%'
+  height: '100%',
+  overflow: 'hidden'
 }
 
 const DateList = ({ dates, onDateRemove }) => (
