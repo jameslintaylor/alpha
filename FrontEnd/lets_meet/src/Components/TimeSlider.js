@@ -13,7 +13,7 @@ const _style = {
 const _rangeStyle = {
   position: 'absolute',
   left: '2%',
-  top: 40,
+  top: 60,
   width: '96%'
 }
 
@@ -21,7 +21,7 @@ const _labelStyle = {
   width: '100%',
   textAlign: 'center',
   position: 'absolute',
-  bottom: 0,
+  bottom: 5,
   fontFamily: 'Helvetica',
   fontSize: 32,
   color: 'white',
@@ -69,7 +69,7 @@ class TimeSlider extends React.Component {
       <div style={{..._style, ...this.props.style}}>
         <LMWidget onSuccess={() => this.props.onContinue(this.state.start, this.state.end)}
           onClose={this.props.onCancel}
-          style={{height: 280, position: 'relative'}}>
+          style={{height: 320, position: 'relative'}}>
 
           {/* 30 minute intervals, (* 24 300) minutes in a day */}
           <Range style={_rangeStyle}

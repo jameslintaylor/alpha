@@ -10,7 +10,7 @@ const _style = {
   backgroundColor: "#fff",
   border: "4px solid #73A9C5",
   height: '100%',
-  overflow: 'hidden'
+  overflowY: 'auto',
 }
 
 const DateList = ({ dates, onDateRemove }) => (

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Slider, { Range } from 'rc-slider'
 import TimeSlider from './TimeSlider'
 
+import { nameForMonth } from './date-utils'
+
 const _style = {
   backgroundColor: "#fff",
   border: "4px solid #73A9C5",
@@ -33,7 +35,7 @@ const TimePicker = ({ day, month, year, onPicked, onCancel }) => {
   
   return (
     <div style={_style}>
-      <div style={_labelStyle}> {day} {month} </div>
+      <div style={_labelStyle}> {nameForMonth(month + 1)} {day} </div>
       <TimeSlider
         onContinue={ (start, end) => onPicked(makeDate(start), makeDate(end)) }
         onCancel={onCancel}

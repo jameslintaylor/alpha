@@ -14,7 +14,7 @@ const inc = (x) => x + 1
 
 const CalendarDaysGrid = ({ days, dayOffset, onDayClick }) => {
 
-  const disabled = [...Array(dayOffset).keys()]
+  const lastMonthDays = [...Array(dayOffset).keys()]
         .map((_) => (
           <CalendarDay
             day={null}
@@ -23,16 +23,28 @@ const CalendarDaysGrid = ({ days, dayOffset, onDayClick }) => {
             />
         ))
 
-  const active = days.map(({ day, selected }) => (
+  const thisMonthDays = days.map(({ day, selected }) => (
     <CalendarDay
       day={day}
       hasSelection={selected}
       onClick={() => onDayClick(day)}/>
   ))
 
+  // just gonna pad the 
+  const nextMonthDays = [...Array(42 - dayOffset - days.length).keys()]
+        .map((_) => (
+          <CalendarDay
+            day={null}
+            disabled={true}
+            onClick={null}
+            />
+        ))
+
   return (
     <div style={_style} >
-      { [ ...disabled, ...active ] }
+      { [ ...lastMonthDays,
+          ...thisMonthDays,
+          ...nextMonthDays ] }
     </div>
   )
 }

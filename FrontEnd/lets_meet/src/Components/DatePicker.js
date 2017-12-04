@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import Calendar from './Calendar'
 import DateList from './DateList'
@@ -8,7 +9,8 @@ import TimePicker from './TimePicker'
 
 import { addDate, removeDate } from '../actions'
 
-import './DatePicker.css';
+import './DatePicker.css'
+import './animation.css'
 
 const _style = {
   position: 'relative',
@@ -38,7 +40,8 @@ const _calendarStyle = {
 
 const _timePickerStyle = {
   position: 'absolute',
-  width: '100%',
+  // idk css so yay hacks
+  width: 708,
   height: '100%',
 }
 
@@ -69,6 +72,12 @@ class DatePicker extends React.Component {
   }
 
   render() {
+
+    let timePickerClasses = classNames({
+      'shrink-on-hide': true,
+      'hidden': !this.state.pickingTime
+    })
+
     return (
       <div style={_style}>
 
@@ -82,16 +91,15 @@ class DatePicker extends React.Component {
         </div>
 
         {/* idk what I'm doing btw */}
-        {this.state.pickingTime &&
-          <div style={_timePickerStyle}>
-              <TimePicker
-                  day={this.state.selectedDay}
-                  month={this.state.selectedMonth - 1}
-                  year={this.state.selectedYear}
-                  onPicked={ (start, end) => { this.props.onDateAdd(start, end); this.dismissTimePicker.bind(this)() }}
-                  onCancel={this.dismissTimePicker.bind(this)}/>
-            </div>
-        }
+        <div className={timePickerClasses}
+             style={_timePickerStyle}>
+          <TimePicker
+            day={this.state.selectedDay}
+            month={this.state.selectedMonth - 1}
+            year={this.state.selectedYear}
+            onPicked={ (start, end) => { this.props.onDateAdd(start, end); this.dismissTimePicker.bind(this)() }}
+            onCancel={this.dismissTimePicker.bind(this)}/>
+        </div>
 
       </div>
     )
