@@ -1,5 +1,5 @@
 import React from 'react';
-import Calendar from '../Components/Calendar';
+import DatePicker from '../Components/DatePicker';
 
 import ProgressArrow from '../images/Progress_Arrow.svg';
 
@@ -23,7 +23,7 @@ class Section2 extends React.Component{
 		return(
 			<div style={{textAlign:'center'}}>
 				<div style={{display:'inline-block', marginTop:'20px'}}>
-					<Calendar />
+					<DatePicker />
 					<div style={{display:'flex',justifyContent:'space-between'}}>
 						<img onClick={this.back} alt="back" src={ProgressArrow} className="back" />					
 						<img onClick={this.continue} alt="continue" src={ProgressArrow} className="continue" />					

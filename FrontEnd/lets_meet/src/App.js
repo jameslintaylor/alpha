@@ -8,6 +8,7 @@ import {ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-re
 
 import {reducer as progressIndicator} from './Components/ProgressIndicator';
 import {reducer as createEvent} from './Create/reducers';
+import { dates } from './reducers'
 
 import Home from './Home/Home';
 import Create from './Create/Create';
@@ -23,7 +24,8 @@ const store = createStore(
   combineReducers({
     routing: routerReducer,
     progressIndicator,
-    createEvent
+    createEvent,
+    dates
   }),   
   composeEnhancers(applyMiddleware(thunk, routerMiddleware(history)))
 );
