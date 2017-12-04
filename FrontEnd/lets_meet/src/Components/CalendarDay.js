@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const style = {
+const _style = {
   float: 'left',
   width: 50,
   height: 50,
@@ -9,13 +9,13 @@ const style = {
   color: 'white',
 }
 
-const colorSelected = 'hsla(200, 80%, 40%, 1)'
-const colorDefault = 'hsla(200, 70%, 70%, 1)'
+const colorSelected = '#73B2D3'
+const colorDefault = '#C0E2F4'
 
 const CalendarDay = ({ onClick, hasSelection, day }) => (
   <div
     onClick={ onClick }
-    style={{ ...style, backgroundColor: hasSelection ? colorSelected : colorDefault }}>
+    style={{ ..._style, backgroundColor: hasSelection ? colorSelected : colorDefault }}>
     {day}
   </div>
 )

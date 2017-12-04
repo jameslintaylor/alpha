@@ -2,29 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Date from './Date'
 
-import { addDate } from '../actions'
+import { removeDate } from '../actions'
 
 import { connect } from 'react-redux'
 
-const DateList = ({ dates, onDateClick }) => {
-  console.log(dates)
-  return (<ul>
+const _style = {
+  backgroundColor: "#fff",
+  border: "4px solid #73A9C5",
+  height: '100%'
+}
+
+const DateList = ({ dates, onDateRemove }) => (
+  <div style={_style}>
     {dates.map((date) => (
-      <Date key={date.id} {...date} onClick={() => onDateClick(date.id)} />
+      <Date key={date.id} {...date} onClick={() => onDateRemove(date.id)} />
     ))}
-   </ul>)
-}
+  </div>
+)
 
-const mapStateToProps = state => {
-  return {
-    dates: state.dates
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onDateClick: dispatch(addDate(0, 0, 0))
-  }
-}
-
-export default connect(mapStateToProps)(DateList)
+export default (DateList)

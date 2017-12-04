@@ -1,10 +1,16 @@
 let nextDateId = 0
-export const addDate = (day, month, year) => {
+export const addDate = (start, end) => {
   return {
     type: 'ADD_DATE',
     id: nextDateId++,
-    day,
-    month,
-    year
+    start,
+    end
+  }
+}
+
+export const removeDate = (id) => {
+  return {
+    type: 'REMOVE_DATE',
+    id: id
   }
 }

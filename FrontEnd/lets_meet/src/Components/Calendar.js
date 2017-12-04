@@ -6,11 +6,11 @@ import NavigationBar from './NavigationBar'
 import { connect } from 'react-redux'
 import { addDate } from '../actions'
 
-const style = {
-  padding: 10,
-  width: 410,
-  backgroundColor: 'white',
-  overflow: 'hidden'
+const _style = {
+  width: '100%',
+  height: '100%',
+  backgroundColor: "#fff",
+  border: "4px solid #73A9C5",
 }
 
 // negative friendly modulo
@@ -61,14 +61,11 @@ class Calendar extends React.Component {
       this.setState({month: this.state.month - 1})
     }
   }
-
+  
   render() {
 
-    const addDay = (day) =>
-          this.props.dispatch(addDate(day, this.state.month, this.state.year))
-    
     return (
-      <div style={style}>
+      <div style={_style}>
 
         <NavigationBar
           backText={abbrevForMonth(this.state.month - 1)}
@@ -81,8 +78,8 @@ class Calendar extends React.Component {
         <CalendarDaysGrid
           numDays={numDaysInMonth(this.state.month, this.state.year)}
           dayOffset={dayOffsetInMonth(this.state.month, this.state.year)}
-          onDayClick={addDay}/>
-          
+          onDayClick={ (day) => this.props.onDayClick(day, this.state.month, this.state.year)}/>
+        
       </div>
     )
   }
@@ -92,7 +89,5 @@ Calendar.propTypes = {
   month: PropTypes.number,
   year: PropTypes.number
 }
-
-Calendar = connect()(Calendar)
 
 export default Calendar

@@ -8,8 +8,13 @@ const update = (f, key, obj) => {
 export const dates = (state = [], action) => {
   switch (action.type) {
   case 'ADD_DATE':
-    const newDate = (({day, month, year}) => ({day, month, year}))(action)
-    return [...state, newDate]
+    return [
+      ...state,
+      (({id, start, end}) => ({id, start, end}))(action)
+    ]
+  case 'REMOVE_DATE':
+    // not an efficient implementation but it'll do
+    return state.filter((day) => !(day.id == action.id))
   default:
     return state
   }
