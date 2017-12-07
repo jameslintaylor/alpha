@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {push} from 'react-router-redux';
 
 import FormInputText from '../Components/FormInputText';
+import EventManagement from './EventManagement';
 
 import Logo from '../images/Logo.svg';
 import ProgressArrow from '../images/Progress_Arrow.svg';
@@ -12,9 +13,6 @@ class Event extends React.Component{
 
 	constructor(props){
 		super(props);
-	}
-
-	componentWillMount(){
 	}
 
 	render(){
