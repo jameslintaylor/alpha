@@ -21,11 +21,37 @@ class Section3 extends React.Component{
 		this.copyLink = this.copyLink.bind(this);
 	}
 
+	componentWillMount(){
+		this.setState({
+			error: ""
+		});
+	}
+
 	back(){
 		this.props.prevSection();
 	}
 
+	validEmail(email) {
+		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email);
+	}
+
+	validPhone(phonenumber){
+		var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+		return re.test(phonenumber);		
+	}
+
 	continue(){
+		if(!this.validEmail(this.props.creatorEmail)){
+			this.setState({
+				error: "please provide a valid address for your email"
+			});
+			return;
+		}else{
+			this.setState({
+				error: ""
+			})
+		}
 		this.props.push("/");
 	}
 
@@ -52,6 +78,8 @@ class Section3 extends React.Component{
 
 		return (
 			<div>
+				<h2>Contact Information</h2>
+				<label style={{color:"red"}}>{this.state.error}</label><br/>
 				<FormInputText prompt={"Your Email"} width={"30%"} type={"email"} onChange={setCreatorEmail}/>
 				<img alt="question" src={QuestionButton} width="60px"/>
 				<div className="divider">
@@ -61,7 +89,7 @@ class Section3 extends React.Component{
 					{contacts}
 				</div>		
 				<BottomMenuBar>
-					<img onClick={this.back} alt="back" src={ProgressArrow} className="back" />					
+				<button onClick={this.back}  style={{marginTop:"20px",transform:"translateY(18px)"}}  className="arrow"><img alt="back"src={ProgressArrow} className="back" /></button>
 					<div id="copy-zone">
 						<label>Event link</label>
 						<textarea autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"
@@ -79,6 +107,7 @@ class Section3 extends React.Component{
 }
 
 const mstp = state =>({
+	creatorEmail: state.createEvent.creatorEmail,
 	invitees: state.createEvent.invitees
 });
 

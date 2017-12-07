@@ -12,6 +12,7 @@ import { dates } from './reducers'
 
 import Home from './Home/Home';
 import Create from './Create/Create';
+import Event from './Event/Event';
 
 
 import './App.css';
@@ -49,6 +50,7 @@ class AppContent extends Component{
         <Switch>
           <Route name="home" exact path="/" component={Home}/>
           <Route name="create" exact path="/create" component={Create}/>
+          <Route name="event" path="/event" component={Event}/>
         </Switch>        
       </ConnectedRouter>
     )
