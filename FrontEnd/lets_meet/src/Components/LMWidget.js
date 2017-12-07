@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Slider, { Range } from 'rc-slider'
 
 import _checkmark from '../images/Checkmark.svg';
 import _cross from '../images/Close_Icon.svg';
@@ -41,10 +39,12 @@ const LMWidget = ({ onSuccess, onClose, style, children }) => (
   <div id="lm-widget" style={{..._style, ...style}}>
     { children }
     {onSuccess && (<img className='grow-on-hover'
-                       src={_checkmark}
-                        style={_checkmarkStyle}
+                          alt=''
+                          src={_checkmark}
+                          style={_checkmarkStyle}
                         onClick={onSuccess}/>) }
     <img src={_cross}
+  alt=''
   className='grow-on-hover'
          style={_crossStyle}
          onClick={onClose} />

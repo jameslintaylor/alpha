@@ -1,10 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import LMWidget from './LMWidget'
 
-import { nameForMonth,
-         abbrevForMonth } from './date-utils'
+import {abbrevForMonth } from './date-utils'
 
 import './common.css'
 

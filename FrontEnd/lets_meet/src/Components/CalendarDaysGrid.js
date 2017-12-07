@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import CalendarDay from './CalendarDay'
 
 const _style = {
@@ -10,16 +9,15 @@ const _style = {
   marginLeft: 36
 }
 
-const inc = (x) => x + 1
-
 const CalendarDaysGrid = ({ days, dayOffset, onDayClick }) => {
 
   const lastMonthDays = [...Array(dayOffset).keys()]
-        .map((_) => (
+        .map((day) => (
           <CalendarDay
             day={null}
             disabled={true}
             onClick={null}
+            key={`l${day}`}
             />
         ))
 
@@ -27,16 +25,19 @@ const CalendarDaysGrid = ({ days, dayOffset, onDayClick }) => {
     <CalendarDay
       day={day}
       hasSelection={selected}
-      onClick={() => onDayClick(day)}/>
+      onClick={() => onDayClick(day)}
+      key={`${day}`}
+      />
   ))
 
   // just gonna pad the 
   const nextMonthDays = [...Array(42 - dayOffset - days.length).keys()]
-        .map((_) => (
+        .map((day) => (
           <CalendarDay
             day={null}
             disabled={true}
             onClick={null}
+            key={`n${day}`}
             />
         ))
 
@@ -47,12 +48,6 @@ const CalendarDaysGrid = ({ days, dayOffset, onDayClick }) => {
           ...nextMonthDays ] }
     </div>
   )
-}
-
-CalendarDaysGrid.propTypes = {
-  numDays: PropTypes.number.isRequired,
-  dayOffset: PropTypes.number.isRequired,
-  onDayClick: PropTypes.func.isRequired
 }
 
 export default CalendarDaysGrid

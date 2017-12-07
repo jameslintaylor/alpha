@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import Calendar from './Calendar'
@@ -62,7 +61,6 @@ class DatePicker extends React.Component {
   }
 
   dismissTimePicker() {
-    console.log('hello')
     this.setState({
       pickingTime: false,
       selectedDay: null,

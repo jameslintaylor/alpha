@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Slider, { Range } from 'rc-slider'
 import TimeSlider from './TimeSlider'
 
 import { nameForMonth } from './date-utils'
@@ -29,7 +27,6 @@ const TimePicker = ({ day, month, year, onPicked, onCancel }) => {
   const makeDate = (minutes) => {
     let h = Math.floor(minutes / 60)
     let m = minutes % 60
-    console.log(h, m)
     return new Date(year, month, day, h, m)
   }
   

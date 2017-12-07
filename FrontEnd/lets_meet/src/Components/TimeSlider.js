@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Slider, { Range } from 'rc-slider'
+import { Range } from 'rc-slider'
 import LMWidget from './LMWidget'
 
 import 'rc-slider/assets/index.css'

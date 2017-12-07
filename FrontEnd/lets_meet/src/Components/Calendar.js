@@ -1,10 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import CalendarDaysGrid from './CalendarDaysGrid'
 import NavigationBar from './NavigationBar'
 
 import { connect } from 'react-redux'
-import { addDate } from '../actions'
 
 import { numDaysInMonth,
          dayOffsetInMonth,
@@ -97,11 +95,6 @@ class Calendar extends React.Component {
       </div>
     )
   }
-}
-
-Calendar.propTypes = {
-  month: PropTypes.number,
-  year: PropTypes.number
 }
 
 const toDayLookup = (dates) => dates.reduce((a, { start }) => {

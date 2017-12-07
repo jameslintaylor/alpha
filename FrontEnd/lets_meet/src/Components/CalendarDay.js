@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import './common.css'
 import './animation.css'
@@ -27,7 +26,7 @@ const _styleDisabled = {
 
 const CalendarDay = ({ onClick, disabled, hasSelection, day }) => (
   <div
-    className={!disabled && 'grow-on-hover' || ''}
+    className={(!disabled && 'grow-on-hover') || ''}
     onClick={ onClick }
     style={(disabled && _styleDisabled) ||
            (hasSelection && _styleSelected) ||
@@ -37,11 +36,5 @@ const CalendarDay = ({ onClick, disabled, hasSelection, day }) => (
     </div>
   </div>
 )
-
-CalendarDay.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  hasSelection: PropTypes.bool.isRequired,
-  day: PropTypes.number.isRequired
-}
 
 export default CalendarDay
