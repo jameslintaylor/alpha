@@ -1,0 +1,31 @@
+.timeslot{
+	padding: 50px 35px;
+	background: #C0E2F4;
+	color: white;	
+	cursor: pointer;
+	transition: 0.25s;
+}
+.timeslot:hover{
+	background: rgb(136, 178, 197);
+}
+.timeslot.selected{
+	background: #73B2D3;
+	transform: scale(1.05);
+}
+.timeslot .day{
+	display: block;
+	font-size: 1.4em;
+	margin-bottom: 20px;
+}
+.timeslot .times{	
+	display: grid;
+	grid-row-gap: 10px;
+	grid-template-rows: repeat(2,1fr);
+	grid-template-columns: repeat(2,1fr);
+	text-align: right;	
+	user-select: none;	
+}
+.timeslot .times .label{
+	font-size: 0.8em;
+	text-align: left;
+}

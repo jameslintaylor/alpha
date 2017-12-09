@@ -10,9 +10,11 @@ import './ProgressIndicator.css';
 import {createAction} from 'redux-actions';
 export const INCR_INDICATOR = "INCR_INDICATOR";
 export const DECR_INDICATOR = "DECR_INDICATOR";
+export const RESET_INDICATOR = "RESET_INDICATOR";
 export const Actions = { 
 	Incr_Indicator : createAction(INCR_INDICATOR),
-	Decr_Indicator : createAction(DECR_INDICATOR)
+	Decr_Indicator : createAction(DECR_INDICATOR),
+	Reset_Indicator : createAction(RESET_INDICATOR)
 }
 export const reducer = (
 	state = {
@@ -31,6 +33,11 @@ export const reducer = (
 			...state,
 			index: state.index - 1
 		};
+		case RESET_INDICATOR:
+		return {
+			...state,
+			index: 0
+		}
 		default:
 		return state;
 	}	

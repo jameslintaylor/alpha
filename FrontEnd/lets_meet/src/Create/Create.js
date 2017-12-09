@@ -12,6 +12,10 @@ import './Create.css';
 
 class Create extends React.Component{
 
+	componentWillMount(){
+		this.props.restartProgress();
+	}
+
 	render(){
 
 		return (
@@ -35,4 +39,4 @@ const mstp = state =>({
 	currentStage: state.progressIndicator.index
 })
 
-export default connect(mstp,{nextStage: PIActions.Incr_Indicator})(Create);
+export default connect(mstp,{nextStage: PIActions.Incr_Indicator, restartProgress: PIActions.Reset_Indicator})(Create);

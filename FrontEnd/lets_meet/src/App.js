@@ -14,6 +14,7 @@ import Home from './Home/Home';
 import Create from './Create/Create';
 import Event from './Event/Event';
 import EventManagement from './Event/EventManagement';
+import RSVP from './Event/RSVP';
 
 
 import './App.css';
@@ -52,7 +53,8 @@ class AppContent extends Component{
           <Route name="home" exact path="/" component={Home}/>
           <Route name="create" exact path="/create" component={Create}/>
           <Route name="event" exact path="/event" component={Event}/>
-          <Route name="event-management" path="/event/:code" component={EventManagement}/> 
+          <Route name="event-management" exact path="/event/:code" component={EventManagement}/> 
+          <Route name="rsvp" path="/event/:code/rsvp" component={RSVP} />
         </Switch>        
       </ConnectedRouter>
     )
