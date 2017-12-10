@@ -1,5 +1,4 @@
 import React from 'react'
-import FullScreen from 'react-fullscreen'
 
 import { connect } from 'react-redux'
 
