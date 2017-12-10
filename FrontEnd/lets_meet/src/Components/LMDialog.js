@@ -5,6 +5,7 @@ import _cross from '../images/Close_Icon.svg';
 
 import './LMDialog.css'
 
+
 const LMDialog = ({ onSuccess, onClose, style, children }) => {
 
   const checkmark = (
@@ -26,10 +27,10 @@ const LMDialog = ({ onSuccess, onClose, style, children }) => {
     <div
       id='dialog-container'
       style={style}>
-      { children }
+      {children}
       <div id='dialog-footer'>
-        { onSuccess && checkmark }
-        { cross }
+        {cross}
+        {onSuccess && checkmark}
       </div>
     </div>
   )

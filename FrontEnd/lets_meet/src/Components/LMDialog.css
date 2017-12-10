@@ -13,17 +13,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(transparent, #fff);
+    background: linear-gradient(transparent, #fff, #fff);
 }
 
 #dialog-checkmark {
   background-color: #fff;
-  border-radius: 20;
+  border-radius: 20px;
   padding: 5px;
   width: 30px;
   height: 30px;
   cursor: pointer;
   box-shadow: 0 0.5px;
+  margin-left: 40px;
 }
 
 #dialog-cross {

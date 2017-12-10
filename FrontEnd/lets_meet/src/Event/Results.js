@@ -9,6 +9,8 @@ import LMDialog from '../Components/LMDialog'
 import Logo from '../images/Logo.svg'
 import './Results.css'
 
+import _forward from '../images/Progress_Arrow.svg';
+
 const green = "#A2DE97"
 const red = "#FC847E"
 
@@ -47,19 +49,27 @@ const percentageBar = (pct) => (
     </div>
     <div className="pct-label"> {`${pct}%`} </div>
   </div>
-)  
+)
+
+const emailElement = (email) => (<div key={email} className='select-email'>{email}</div>)
 
 const resultForDate = (popup, invitees, date) => {
   let { all, yes, no, pending } = splitByStatus(invitees, date)
   let [emailsYes, emailsPending, emailsNo] = [yes, no, pending]
       .map((xs) => xs.map(partial(emailForInvitee, invitees)))
-
+  
   let pct = (yes.length/invitees.length)*100
 
   let selectDialogContents = (
-    <LMDialog style={{width: 400, height: 300}}>
-      <div>
-        {date.id}
+    <LMDialog style={{width: 400, height: 300}}
+              onSuccess={() => console.log("yeah!!!")}>
+      <div id='select-dialog-container'>
+        <div id='select-dialog-title'>Confirm Event Time?</div>
+        <div id='select-dialog-date'>Sep 30 10:30-11:30am</div>
+        <div className='select-header'>These invitees cannot attend</div>
+        {emailsNo.map(emailElement)}
+        <div className='select-header'>These invitees have not responded</div>
+        {emailsPending.map(emailElement)}
       </div>
     </LMDialog>
   )
@@ -77,11 +87,39 @@ const resultForDate = (popup, invitees, date) => {
 
 const Results = ({invitees, dates, popup}) => {
 
+  // kind of a poor choice was made when structuring state but oh well
+  let { pending } = splitByStatus(invitees, dates[0])
+  let awaitingText = `Awaiting ${pending.length} Response${pending.length > 1 ? 's' : ''} from Invitees`
+
+  let emailsPending = pending
+      .map(partial(emailForInvitee, invitees))
+  
+  let awaitingDialogContents = (
+    <LMDialog style={{width: 400, height: 300}}
+              onSuccess={() => console.log("yeah!!!")}>
+      <div id='select-dialog-container'>
+        <div className='select-header'>These invitees have not responded</div>
+        {emailsPending.map(emailElement)}
+      </div>
+    </LMDialog>
+  )
+
   return (
-    <div id="results-page">
+    <div id='results-page'>
       <a href="/"><img src={Logo} alt="logo" id="top-logo" /></a>
       <div id="results-container">
         {dates.map(partial(resultForDate, popup, invitees))}
+      </div>
+      <div id='results-footer'>
+        <img
+          id='footer-back-button'
+          alt=''
+          src={_forward}
+          onClick={null} />
+        <div id='awaiting-dialog-button'
+             onClick={() => popup(awaitingDialogContents)}>
+          {awaitingText}
+        </div>
       </div>
       <Popup />
     </div>
