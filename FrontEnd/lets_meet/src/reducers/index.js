@@ -19,3 +19,14 @@ export const dates = (state = [], action) => {
     return state
   }
 }
+
+export const popup = (state = null, action) => {
+  switch (action.type) {
+  case 'SHOW_POPUP':
+    return action.body
+  case 'DISMISS_POPUP':
+    return null
+  default:
+    return state
+  }
+}

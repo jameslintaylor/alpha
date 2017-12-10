@@ -14,3 +14,16 @@ export const removeDate = (id) => {
     id: id
   }
 }
+
+export const showPopup = (body) => {
+  return {
+    type: 'SHOW_POPUP',
+    body: body
+  }
+}
+
+export const dismissPopup = () => {
+  return {
+    type: 'DISMISS_POPUP'
+  } 
+}
