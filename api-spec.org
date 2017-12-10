@@ -36,12 +36,17 @@ Timezones? keeping dates in whatever the fuck local time seems fine...
 
 ** Events
 
-In general, an event might have the following structure
+Owners could be inferred as the first invitee, but currently no spot
+in the ui necessitates an owners name, therefore a special owner
+property denoting the owner's email might be in order.
+
+In general, an event might have the following structure:
 
 #+BEGIN_SRC javascript :results silent
   {
     id: 0,
     name: "Vegan Barbecue",
+    owner: "drodman@dprk.nk,"
     timeslots: [
       {
         id: 0,
