@@ -15,7 +15,7 @@ import Create from './Create/Create';
 import Event from './Event/Event';
 import EventManagement from './Event/EventManagement';
 import RSVP from './Event/RSVP';
-
+import Results from './Event/Results';
 
 import './App.css';
 
@@ -55,6 +55,7 @@ class AppContent extends Component{
           <Route name="event" exact path="/event" component={Event}/>
           <Route name="event-management" exact path="/event/:code" component={EventManagement}/> 
           <Route name="rsvp" path="/event/:code/rsvp" component={RSVP} />
+          <Route name="results" path="/event/:code/results" component={Results} />
         </Switch>        
       </ConnectedRouter>
     )

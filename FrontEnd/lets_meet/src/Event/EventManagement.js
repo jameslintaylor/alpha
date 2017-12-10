@@ -14,6 +14,10 @@ class EventManagement extends React.Component{
 			this.props.push(this.props.location.pathname + "/rsvp")
 		};
 
+		const results = ()=>{
+			this.props.push(this.props.location.pathname + "/results")
+		};
+
 		return (
 			<div className="page" id="event-management">
 				<a href="/"><img src={Logo} alt="logo" id="top-logo" /></a>
@@ -21,7 +25,7 @@ class EventManagement extends React.Component{
 					<h1>{this.props.match.params.code}</h1>
 					<div className="padded-top">
 					<button onClick={rsvp}>RSVP</button><br/>
-					<button>view results</button><br/>
+					<button onClick={results}>view results</button><br/>
 					<button>edit event</button><br/>
 					</div>
 				</div>				
