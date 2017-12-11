@@ -1,80 +1,142 @@
-from flask import Flask, render_template, request, redirect
-from models import *
+from flask import Flask, render_template, request, redirect, jsonify
 from db_helper import setup_db
 from tinydb import Query
+from tinydb.operations import delete
 
 app = Flask(__name__)
 
 db = setup_db('events.json')
 events = db.table('events')
-users = db.table('users')
+invitees = db.table('invitee')
 
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+def fresh_id_for(table):
+    return max(map(lambda e: e['id'], table.all())) + 1
 
 
-@app.route('/new_event/', methods=['GET'])
-def new_event_page():
-    return render_template('new_event.html')
-
-
-def get_or_create_user(name, contact):
-    user = users.get(Query().name == name, Query().contact == contact)
-    return user.eid if user else users.insert({'name': name, 'contact': contact})
+def get_or_create_user(name, email, number):
+    invitee = invitees.get(Query().name == name, Query().email == email, Query().number == number)
+    if invitee:
+        return invitee['id']
+    else:
+        fresh_id = fresh_id_for(invitees)
+        invitee.insert({'id': fresh_id,
+                        'name': name,
+                        'email': email,
+                        'number': number})
+        return fresh_id
 
 
 def str_slot(slot):
     return str(slot[0]) + ' to ' + str(slot[1])
 
 
-@app.route('/new_event/', methods=['POST'])
-def create_new_event():
-    form = request.form
-    event = make_event(form)
-    event['host'] = get_or_create_user(form['username'], form['contact'])
-    eid = events.insert(event)
-    return redirect("/event/" + str(eid), code=302)
+'''
+{
+  "id": 0,
+  "name": "Vegan Barbecue",
+  "owner": "drodman@dprk.nk",
+  "timeslots": [
+    {
+      "id": 0,
+      "start": "2017-09-30T12:30:00",
+      "end": "2017-09-30T16:30:00",
+      "yes": [0],
+      "no": []
+    },
+    {
+      "id": 1,
+      "start": "2017-09-31T12:00:00",
+      "end": "2017-09-31T15:00:00",
+      "yes": [],
+      "no": [0]
+    }
+  ],
+  "invitees": [
+    {
+      "id": 0,
+      "name": "Sally",
+      "email": "inabarbieworld@aol.com",
+      "number": "123-456-7891"
+    },
+    {
+      "id": 1,
+      "name": "Enrique",
+      "email": "enriqueiglasias@gmail.com",
+      "number": "123-321-1144"
+    }
+  ],
+}
+'''
 
 
-@app.route('/event/<event_id>/', defaults={'identity': None}, methods=['GET'])
-@app.route('/event/<event_id>/<identity>/', methods=['GET'])
-def event_page(event_id, identity):
-    event = events.get(eid=int(event_id))
-    host = users.get(eid=event['host'])
-    user = identity and users.get(eid=int(identity))
-
-    good_times = event.get('good_times', {})
-    attendees = [users.get(eid=int(user_id)) for user_id in good_times.keys()]
-    attendee_names = list(map(lambda a: a['name'], attendees))
-
-    attendance_table = {str_slot(slot): [] for slot in event['slots']}
-    for slot, availability in attendance_table.items():
-        for attendee in attendees:
-            availability.append(True)
-
-    return render_template('event.html',
-                           event=event,
-                           host_name=host['name'],
-                           user=user,
-                           attendee_names=attendee_names,
-                           attendance_table=attendance_table)
+@app.route('/event/', methods=['POST'])
+def create_event():
+    event = request.get_json()
+    events.insert(event)
+    return jsonify(event)
 
 
-@app.route('/event/<event_id>/', defaults={'identity': None}, methods=['POST'])
-@app.route('/event/<event_id>/<identity>/', methods=['POST'])
-def post_availability(event_id, identity):
-    form = request.form
-    event = events.get(eid=int(event_id))
-    identity = identity or str(get_or_create_user(form['username'], form['contact']))
+@app.route('/event/<event_id>/', methods=['GET'])
+def read_event(event_id):
+    event = events.get(Query().id == int(event_id))
+    return jsonify(event)
 
-    attendance = event.get('good_times', {})
 
-    # TODO Finding out how to update by EID is hard, this is a real bugaboo waiting to cause trouble
-    events.update({'good_times': {identity: list(map(lambda s: s.split(' to '), form.getlist('goodtime')))}}, Query().name == event['name'])
+@app.route('/event/<event_id>/', methods=['PUT'])
+def update_event(event_id):
+    event = events.get(Query().id == int(event_id))
+    if not event:
+        return '', 404
+    event.update(request.get_json())
+    events.remove(Query().id == int(event_id))
+    events.insert(event)
+    return jsonify(event)
 
-    return redirect("/event/" + str(event.eid) + '/' + str(identity), code=302)
+
+@app.route('/event/<invitee_id>/', methods=['DELETE'])
+def delete_event(invitee_id):
+    invitees.remove(Query().id == int(invitee_id))
+    return ('', 204)
+
+
+
+'''
+{
+  id: 0,
+  name: "Sally",
+  email: "inabarbieworld@aol.com",
+  number: "123-456-7891"
+}
+'''
+@app.route('/invitee/', methods=['POST'])
+def create_invitee():
+    invitee = request.get_json()
+    invitees.insert(invitee)
+    return jsonify(invitee)
+
+
+@app.route('/invitee/<invitee_id>/', methods=['GET'])
+def read_invitee(invitee_id):
+    invitee = invitees.get(Query().id == int(invitee_id))
+    return jsonify(invitee)
+
+
+@app.route('/invitee/<invitee_id>/', methods=['PUT'])
+def update_invitee(invitee_id):
+    invitee = invitees.get(Query().id == int(invitee_id))
+    if not invitee:
+        return '', 404
+    invitee.update(request.get_json())
+    invitees.remove(Query().id == int(invitee_id))
+    invitees.insert(invitee)
+    return jsonify(invitee)
+
+
+@app.route('/invitee/<invitee_id>/', methods=['DELETE'])
+def delete_invitee(invitee_id):
+    invitees.remove(Query().id == int(invitee_id))
+    return '', 204
 
 
 if __name__ == '__main__':
