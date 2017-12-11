@@ -21,6 +21,30 @@
             <input type="checkbox" name="goodtime" value="{{ start }} to {{ end }}"> From {{ start }} to {{ end }} <br>
         {% endfor %}
     </ul>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            {% for name in attendee_names %}
+                <th scope="col">{{ name }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for time, slots in attendance_table.items() %}
+            <tr>
+                <th scope="row">{{ time }}</th>
+                {% for slot in slots %}
+                    <td>
+                        <input type="checkbox" onclick="return false;" {% if slot %}checked{% endif %}>
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
     <input type="submit" value="Submit">
 </form>
 </body>
