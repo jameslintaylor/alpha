@@ -52,6 +52,7 @@ class Section3 extends React.Component{
 				error: ""
 			})
 		}
+		this.props.createNewEvent();
 		this.props.push("/");
 	}
 

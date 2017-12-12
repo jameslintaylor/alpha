@@ -1,19 +1,70 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 import ProgressIndicator, {Actions as PIActions} from '../Components/ProgressIndicator.js';
 import SectionPager from '../Components/SectionPager';
 import Section1 from './Section1.js';
 import Section2 from './Section2';
 import Section3 from './Section3';
+import {Actions as EventActions} from './reducers';
 
 import Logo from '../images/Logo.svg';
 import './Create.css';
 
-class Create extends React.Component{
+class Create extends React.Component{	
+
+	constructor(props){
+		super(props);
+		this.createNewEvent = this.createNewEvent.bind(this);
+		this.updateEvent = this.updateEvent.bind(this);
+	}
 
 	componentWillMount(){
+		this.props.createEventID();
 		this.props.restartProgress();
+	}
+
+	createNewEvent(){		
+		axios({
+			url: "http://127.0.0.1:5000/event/",
+			method: "post",
+			contentType: 'application/json',
+			data: {
+				id: this.props.event.id,
+				name: this.props.event.meetingName,
+				owner:this.props.event.creatorEmail,
+				timeslots: this.props.event.timeslots,
+				invitees: this.props.event.invitees										
+			}
+		})
+		.then((response) =>{
+			console.log(response);
+		})
+		.catch((error)=>{
+			console.error(error);
+		})
+	}
+
+	updateEvent(){
+		axios({
+			url: "http://127.0.0.1:5000/event/",
+			method: "put",
+			contentType: 'application/json',
+			data: {
+				id: this.props.event.id,
+				name: this.props.event.meetingName,
+				owner:this.props.event.creatorEmail,
+				timeslots: this.props.event.timeslots,
+				invitees: this.props.event.invitees										
+			}
+		})
+		.then((response) =>{
+			console.log(response);
+		})
+		.catch((error)=>{
+			console.error(error);
+		})
 	}
 
 	render(){
@@ -27,7 +78,7 @@ class Create extends React.Component{
 					<SectionPager>		
 						<Section1/>
 						<Section2/>
-						<Section3/>					
+						<Section3 createNewEvent={this.createNewEvent}/>					
 					</SectionPager>
 				</div>				
 			</div>
@@ -36,7 +87,17 @@ class Create extends React.Component{
 }
 
 const mstp = state =>({
-	currentStage: state.progressIndicator.index
-})
+	currentStage: state.progressIndicator.index,
+	event: {
+			...state.createEvent,
+			timeslots: state.dates
+		}
+});
 
-export default connect(mstp,{nextStage: PIActions.Incr_Indicator, restartProgress: PIActions.Reset_Indicator})(Create);
+const fstp = {
+	nextStage: PIActions.Incr_Indicator, 
+	restartProgress: PIActions.Reset_Indicator,
+	createEventID:EventActions.createId
+}
+
+export default connect(mstp,fstp)(Create);

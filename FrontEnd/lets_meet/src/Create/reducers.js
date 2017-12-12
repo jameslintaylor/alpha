@@ -1,5 +1,6 @@
 import {createAction} from 'redux-actions';
 
+export const CREATE_ID = "CREATE_ID";
 export const SET_MEETING_NAME = "SET_MEETING_NAME";
 export const SET_CREATOR_EMAIL = "SET_CREATOR_EMAIL";
 export const ADD_INVITEE = "PUSH_INVITEE";
@@ -11,11 +12,13 @@ export const Actions = {
 	setCreatorEmail: createAction(SET_CREATOR_EMAIL),
 	addInvitee: createAction(ADD_INVITEE,(name,email)=>({name,email})),
 	removeInvitee: createAction(REMOVE_INVITEE,(index)=>index),
-	updateInvitee: createAction(MODIFY_INVITEE,(index,name,email)=>({index,name,email}))
+	updateInvitee: createAction(MODIFY_INVITEE,(index,name,email)=>({index,name,email})),
+	createId: createAction(CREATE_ID)
 }
 
 export const reducer = (
 	state = {
+		id:0,
 		meetingName: "",
 		creatorEmail: "",
 		invitees: [
@@ -28,6 +31,11 @@ export const reducer = (
 	action
 ) => {
 	switch(action.type){
+		case CREATE_ID:
+			return {
+				id: Math.floor(Math.random() * 99999999)+1,
+				...state				
+			}
 		case SET_MEETING_NAME:
 			return {
 				...state,
