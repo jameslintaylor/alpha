@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request, redirect, jsonify
-from db_helper import setup_db
+from tinydb import TinyDB
 from tinydb import Query
 from tinydb.operations import delete
 
 app = Flask(__name__)
 
-db = setup_db('events.json')
+db = TinyDB('events.json')
 events = db.table('events')
 invitees = db.table('invitee')
 
