@@ -29,8 +29,8 @@ def get_or_create_user(invitee_details):
         return fresh_id
 
 
-def str_slot(slot):
-    return str(slot[0]) + ' to ' + str(slot[1])
+def inflate_event(event):
+    event['invitees'] = list(map(lambda id: invitees.get(Query().id == id), event['invitees']))
 
 
 '''
@@ -78,8 +78,9 @@ def create_event():
     event_invitees = event['invitees']
     invitee_ids = list(map(get_or_create_user, event_invitees))
     event['invitees'] = invitee_ids
+    event['id'] = fresh_id_for(events)
     events.insert(event)
-    event['invitees'] = list(map(lambda id: invitees.get(Query().id == id), invitee_ids))
+    inflate_event(event)
     return jsonify(event)
 
 
@@ -88,7 +89,7 @@ def read_event(event_id):
     event = events.get(Query().id == int(event_id))
     if not event:
         return '', 404
-    event['invitees'] = list(map(lambda id: invitees.get(Query().id == id), event['invitees']))
+    inflate_event(event)
     return jsonify(event)
 
 
@@ -98,8 +99,7 @@ def update_event(event_id):
     if not event:
         return '', 404
     event.update(request.get_json())
-    events.remove(Query().id == int(event_id))
-    events.insert(event)
+    events.upsert(event, Query().id == int(event_id))
     return jsonify(event)
 
 
@@ -113,7 +113,48 @@ def delete_event(event_id):
 
 '''
 {
-  id: 0,
+  # Optional
+  "name": "Sally",
+  "email": "inabarbieworld@aol.com",
+  "number": "123-456-7891",
+  # Mandatory, time slot id followed by boolean represenenting yessedness to the time slot
+  1: true,
+  2: false
+}
+'''
+
+
+@app.route('/event/<event_id>/vote/<invitee_id>/', methods=['POST'])
+@app.route('/event/<event_id>/vote/', defaults={'invitee_id': None}, methods=['POST'])
+def make_vote(event_id, invitee_id):
+    request_object = request.get_json()
+
+    INVITEE_KEYS = ["name", "email", "number"]
+    invitee_data = {key: request_object[key] for key in request_object.keys() & INVITEE_KEYS}
+    vote_data = {key: request_object[key] for key in request_object.keys() - INVITEE_KEYS}
+    if not (invitee_id or invitee_data):
+        return 'Invitee data must be included in request, or ID included in request URL', 400
+    invitee_id = (invitee_id and int(invitee_id)) or get_or_create_user(invitee_data)
+
+    event = events.get(Query().id == int(event_id))
+    if not event:
+        return 'Event does not exist', 404
+
+    for slot in event['timeslots']:
+        if vote_data.get(str(slot['id']), False):
+            slot['yes'].append(invitee_id)
+            if invitee_id in slot['no']: slot['no'].remove(invitee_id)
+        else:
+            slot['no'].append(invitee_id)
+            if invitee_id in slot['yes']: slot['yes'].remove(invitee_id)
+
+    events.upsert(event, Query().id == int(event_id))
+    inflate_event(event)
+    return jsonify(event)
+
+
+'''
+{
   name: "Sally",
   email: "inabarbieworld@aol.com",
   number: "123-456-7891"
@@ -125,7 +166,7 @@ def delete_event(event_id):
 def create_invitee():
     invitee = request.get_json()
     given_id = invitee['id']
-    if not given_id or invitees.get(Query().id == given_id)
+    if not given_id or invitees.get(Query().id == given_id):
         invitee['id'] = fresh_id_for(invitees)
     invitees.insert(invitee)
     return jsonify(invitee)
