@@ -127,6 +127,10 @@ def delete_event(event_id):
 @app.route('/event/<event_id>/vote/<invitee_id>/', methods=['POST'])
 @app.route('/event/<event_id>/vote/', defaults={'invitee_id': None}, methods=['POST'])
 def make_vote(event_id, invitee_id):
+    event = events.get(Query().id == int(event_id))
+    if not event:
+        return 'Event does not exist', 404
+
     request_object = request.get_json()
 
     INVITEE_KEYS = ["name", "email", "number"]
@@ -134,11 +138,9 @@ def make_vote(event_id, invitee_id):
     vote_data = {key: request_object[key] for key in request_object.keys() - INVITEE_KEYS}
     if not (invitee_id or invitee_data):
         return 'Invitee data must be included in request, or ID included in request URL', 400
-    invitee_id = (invitee_id and int(invitee_id)) or get_or_create_user(invitee_data)
 
-    event = events.get(Query().id == int(event_id))
-    if not event:
-        return 'Event does not exist', 404
+    invitee_id = (invitee_id and int(invitee_id)) or get_or_create_user(invitee_data)
+    if invitee_id not in event['invitees']: event['invitees'].append(invitee_id)
 
     for slot in event['timeslots']:
         if vote_data.get(str(slot['id']), False):
