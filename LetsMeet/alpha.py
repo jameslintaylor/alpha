@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, jsonify
 from tinydb import TinyDB
 from tinydb import Query
+from crossdomain import crossdomain
 from tinydb.operations import delete
 
 app = Flask(__name__)
@@ -72,7 +73,8 @@ def inflate_event(event):
 '''
 
 
-@app.route('/event/', methods=['POST'])
+@app.route('/event/', methods=['POST', 'OPTIONS'])
+@crossdomain(origin='*')
 def create_event():
     event = request.get_json()
     event_invitees = event['invitees']
@@ -84,7 +86,8 @@ def create_event():
     return jsonify(event)
 
 
-@app.route('/event/<event_id>/', methods=['GET'])
+@app.route('/event/<event_id>/', methods=['GET', 'OPTIONS'])
+@crossdomain(origin='*')
 def read_event(event_id):
     event = events.get(Query().id == int(event_id))
     if not event:
@@ -93,7 +96,8 @@ def read_event(event_id):
     return jsonify(event)
 
 
-@app.route('/event/<event_id>/', methods=['PUT'])
+@app.route('/event/<event_id>/', methods=['PUT', 'OPTIONS'])
+@crossdomain(origin='*')
 def update_event(event_id):
     event = events.get(Query().id == int(event_id))
     if not event:
@@ -103,7 +107,8 @@ def update_event(event_id):
     return jsonify(event)
 
 
-@app.route('/event/<event_id>/', methods=['DELETE'])
+@app.route('/event/<event_id>/', methods=['DELETE', 'OPTIONS'])
+@crossdomain(origin='*')
 def delete_event(event_id):
     if events.remove(Query().id == int(event_id)):
         return '', 204
@@ -124,8 +129,9 @@ def delete_event(event_id):
 '''
 
 
-@app.route('/event/<event_id>/vote/<invitee_id>/', methods=['POST'])
-@app.route('/event/<event_id>/vote/', defaults={'invitee_id': None}, methods=['POST'])
+@app.route('/event/<event_id>/vote/<invitee_id>/', methods=['POST', 'OPTIONS'])
+@app.route('/event/<event_id>/vote/', defaults={'invitee_id': None}, methods=['POST', 'OPTIONS'])
+@crossdomain(origin='*')
 def make_vote(event_id, invitee_id):
     event = events.get(Query().id == int(event_id))
     if not event:
@@ -164,7 +170,8 @@ def make_vote(event_id, invitee_id):
 '''
 
 
-@app.route('/invitee/', methods=['POST'])
+@app.route('/invitee/', methods=['POST', 'OPTIONS'])
+@crossdomain(origin='*')
 def create_invitee():
     invitee = request.get_json()
     given_id = invitee['id']
@@ -174,7 +181,8 @@ def create_invitee():
     return jsonify(invitee)
 
 
-@app.route('/invitee/<invitee_id>/', methods=['GET'])
+@app.route('/invitee/<invitee_id>/', methods=['GET', 'OPTIONS'])
+@crossdomain(origin='*')
 def read_invitee(invitee_id):
     invitee = invitees.get(Query().id == int(invitee_id))
     if not invitee:
@@ -182,7 +190,8 @@ def read_invitee(invitee_id):
     return jsonify(invitee)
 
 
-@app.route('/invitee/<invitee_id>/', methods=['PUT'])
+@app.route('/invitee/<invitee_id>/', methods=['PUT', 'OPTIONS'])
+@crossdomain(origin='*')
 def update_invitee(invitee_id):
     invitee = invitees.get(Query().id == int(invitee_id))
     if not invitee:
@@ -193,7 +202,8 @@ def update_invitee(invitee_id):
     return jsonify(invitee)
 
 
-@app.route('/invitee/<invitee_id>/', methods=['DELETE'])
+@app.route('/invitee/<invitee_id>/', methods=['DELETE', 'OPTIONS'])
+@crossdomain(origin='*')
 def delete_invitee(invitee_id):
     if invitees.remove(Query().id == int(invitee_id)):
         return '', 204
