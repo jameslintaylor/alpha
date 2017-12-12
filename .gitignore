@@ -227,3 +227,5 @@ TSWLatexianTemp*
 # expex forward references with \gathertags
 *-tags.tex
 /FrontEnd/lets_meet/package-lock.json
+.venv/
+/LetsMeet/__pycache__/db_helper.cpython-36.pyc
