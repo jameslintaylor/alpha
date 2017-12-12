@@ -11,19 +11,21 @@ invitees = db.table('invitee')
 
 
 def fresh_id_for(table):
-    return max(map(lambda e: e['id'], table.all())) + 1
+    return 1 if not table.all() else max(map(lambda e: e['id'], table.all())) + 1
 
 
-def get_or_create_user(name, email, number):
-    invitee = invitees.get(Query().name == name, Query().email == email, Query().number == number)
+def get_or_create_user(invitee_details):
+    invitee = invitees.get((Query().name == invitee_details['name']) &
+                           (Query().email == invitee_details['email']) &
+                           (Query().number == invitee_details['number']))
     if invitee:
         return invitee['id']
     else:
         fresh_id = fresh_id_for(invitees)
-        invitee.insert({'id': fresh_id,
-                        'name': name,
-                        'email': email,
-                        'number': number})
+        invitees.insert({'id': fresh_id,
+                         'name': invitee_details['name'],
+                         'email': invitee_details['email'],
+                         'number': invitee_details['number']})
         return fresh_id
 
 
@@ -73,13 +75,20 @@ def str_slot(slot):
 @app.route('/event/', methods=['POST'])
 def create_event():
     event = request.get_json()
+    event_invitees = event['invitees']
+    invitee_ids = list(map(get_or_create_user, event_invitees))
+    event['invitees'] = invitee_ids
     events.insert(event)
+    event['invitees'] = list(map(lambda id: invitees.get(Query().id == id), invitee_ids))
     return jsonify(event)
 
 
 @app.route('/event/<event_id>/', methods=['GET'])
 def read_event(event_id):
     event = events.get(Query().id == int(event_id))
+    if not event:
+        return '', 404
+    event['invitees'] = list(map(lambda id: invitees.get(Query().id == id), event['invitees']))
     return jsonify(event)
 
 
@@ -94,11 +103,12 @@ def update_event(event_id):
     return jsonify(event)
 
 
-@app.route('/event/<invitee_id>/', methods=['DELETE'])
-def delete_event(invitee_id):
-    invitees.remove(Query().id == int(invitee_id))
-    return ('', 204)
-
+@app.route('/event/<event_id>/', methods=['DELETE'])
+def delete_event(event_id):
+    if events.remove(Query().id == int(event_id)):
+        return '', 204
+    else:
+        return '', 404
 
 
 '''
@@ -109,9 +119,14 @@ def delete_event(invitee_id):
   number: "123-456-7891"
 }
 '''
+
+
 @app.route('/invitee/', methods=['POST'])
 def create_invitee():
     invitee = request.get_json()
+    given_id = invitee['id']
+    if not given_id or invitees.get(Query().id == given_id)
+        invitee['id'] = fresh_id_for(invitees)
     invitees.insert(invitee)
     return jsonify(invitee)
 
@@ -119,6 +134,8 @@ def create_invitee():
 @app.route('/invitee/<invitee_id>/', methods=['GET'])
 def read_invitee(invitee_id):
     invitee = invitees.get(Query().id == int(invitee_id))
+    if not invitee:
+        return '', 404
     return jsonify(invitee)
 
 
@@ -135,8 +152,10 @@ def update_invitee(invitee_id):
 
 @app.route('/invitee/<invitee_id>/', methods=['DELETE'])
 def delete_invitee(invitee_id):
-    invitees.remove(Query().id == int(invitee_id))
-    return '', 204
+    if invitees.remove(Query().id == int(invitee_id)):
+        return '', 204
+    else:
+        return '', 404
 
 
 if __name__ == '__main__':
