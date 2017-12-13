@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {push} from 'react-router-redux';
 
 import SectionPager from '../Components/SectionPager';
 import ProgressIndicator,{Actions} from '../Components/ProgressIndicator';
@@ -22,7 +23,7 @@ class RSVP extends React.Component{
       <div className="page" id="rsvp">
         <a href="/"><img src={Logo} alt="logo" id="top-logo" /></a>
         <h1 id="process-title">Event Name</h1>
-        <ProgressIndicator count={2}/>
+        <ProgressIndicator count={3}/>
         <div className="content">
           <SectionPager>
             <Section1 {...this.props}/>
@@ -43,33 +44,52 @@ class Section1 extends React.Component{
     })
   }
 
-  render(){
+  render() {
+
     const submit = ()=>{
       if(this.state.name && this.state.name.trim().length > 0){
         this.props.nextSection();
       }
     };
+
     const change = (text)=>{this.setState({name:text})}
 
     return (
       <div>
         <h2>What's your name?</h2>
-        <FormInputText prompt="Your Name" onChange={change} onDone={submit} />
-        <button onClick={submit}  style={{marginTop:"20px",transform:"translateY(18px)"}}  className="arrow"><img alt="continue"src={ProgressArrow} className="continue" /></button>
+        <FormInputText
+          prompt="Your Name"
+          onChange={change}
+          onDone={submit} />
+        <button onClick={submit}
+                 style={{marginTop:"20px",transform:"translateY(18px)"}}
+                className="arrow">
+          <img alt="continue"
+               src={ProgressArrow}
+               className="continue" />
+        </button>
       </div>
                 )
         }
 }
 
-class Section2 extends React.Component{
+const timeslotComponent = (date) => (
+<TimeSlot index={date.id} start={date.start} end={date.end} /> 
+)
+
+class Section2 extends React.Component {
         render(){
+
+
                 const submit = ()=>{this.props.nextSection()};
                 const back = ()=>{this.props.prevSection()};
                 return (
                         <div>
                           <h2>When are you available, Name?</h2>
                           <div id="timeslot-container">
-                            <TimeSlot index={1} onToggle={(x,y)=>{console.log(x+" "+y)}}/>
+
+{this.props.managedEvent.dates.map(timeslotComponent)}
+
                           </div>
                           <BottomMenuBar>
                             <button onClick={back}  style={{marginLeft:"60px",marginBottom:"20px",marginTop:"20px",transform:"translateY(18px)"}}  className="arrow"><img alt="back"src={ProgressArrow} className="back" /></button>
@@ -80,13 +100,15 @@ class Section2 extends React.Component{
         }
 }
 
-class Section3 extends React.Component{
+class Section3 extends React.Component {
+
         render(){
                 return (
                         <div>
                           <h1>Thank you!</h1>
                           <label style={{fontWeight:"100",fontSize:"1.3em"}}>Your response has been recorded</label><br/><br/>
-                          <button className="padded">View Results</button>
+                          <button className="padded"
+onClick={() => this.props.push('/event/2/results')}>View Results</button>
                         </div>
                 )
         }
@@ -95,7 +117,8 @@ class Section3 extends React.Component{
 const fstp = {
         nextSection: Actions.Decr_Indicator,
         prevSection: Actions.Incr_Indicator,
-        restartProgress: Actions.Reset_Indicator
+        restartProgress: Actions.Reset_Indicator,
+push
 }
 
 export default connect(null,fstp)(RSVP);
