@@ -1,0 +1,44 @@
+
+Results:
+
+For Pre-Testing Questionnaire, this was the result:
+
+The first question asked was if "You are experienced with meetings". The results of that question came to 1 user responding with neutral, 3 users responding with agree and 1 user responding with strongly agree.
+
+The second question asked was if "You schedule meetings often". The results of that question came to 2 users responding with disagree, 1 user responding with neutral, 1 user responding with agree, and 1 user responding with strongly agree.
+
+The third question asked was if "Some of the current meeting scheduling apps are tedious to use". The results of that question came to 2 users responding with disagree, 2 responding with neutral and 1 user responding with agree.
+
+The fourth question asked was if "You find your meeting invites are ignored by invitees". The results of that question came to 1 user responding with neutral, 2 user responding with agree, and 2 user responding with strongly agree.
+
+For Post-Testing Questionnaire, this was the result:
+
+The first question asked was if "LetsMeet had a simple to use interface". The results of that question came to 3 users responding with neutral and 2 responding with agree.
+
+The second question asked was if "The Create Event and inputing the information was easy to use". The results of that question came to all 5 users answering with agree.
+
+The third question asked was if "Scheduling a meeting with the calender interface was easy to follow and input". The results of that question came to 3 users answering with neutral and 2 users answering with agree.
+
+The fourth question asked was if "Responding to meeting invites was simple and easy". The results of that question came to 3 users answering with agree and 2 users answering with neutral responses.
+
+The fifth question asked was if "The View Results of RSVP was helpful and easy to follow". The results of that were all 5 users answering with agree.
+
+The sixth question asked was if "LetsMeet was a satisfying experience to use (e.g. easy to use or hard to use, would use again)". The results of this question were 4 users answered the question with neutral and 1 user answered the question with agree.
+
+The seventh question asked was if "Compared to other apps, using LetsMeet was an easier experience". The result of this were that 1 user answered with disagree, 2 users answered with neutral and the last 2 users answered with agree.
+
+As for the written answers, we noticed that the users found the calendar system to be easy to use and likable but the military time (24 hour format) used for selecting the time was disliked and not an easy feature to use. This had affected their vote for the third question; if the 24 hour format was changed to 12 hour format, they would most likely change their answer to agree.
+
+Discussion:
+
+Based on our questionnaires and written answer responses, we have found that some of our features are not as simple to use as we had initially thought. A common reoccurring issue that users had was the method to select the time for the calendar. Users found that the slider was slightly less convenient to use than traditionally inputting the number, users found it may be easier to input the time as a unit than to keep readjusting the slider on each side to get the correct meeting time. However the main issue that users had with the slider was that the time was displayed in military time (24 hour format). This was a main issue for users because it was odd for them to try to convert the 24 hour format to 12 hour format while having to keep readjusting the slider; all users reported that they usually schedule hangouts with friends or keep track of time with the 12 hour format. Another issue that users had in our testing was having to re-input invitee's emails over and over again. This is not an issue if a user only has to use the application once in a while but when they use the app regularly, having to manually input the email addresses every time a new event is to be schedule can become very tedious especially if there are always 3 invitees per event. Users stated that if we had implemented some sort of system to store invitee's information (e.g. having an account) or if the way to send the invite was more simplistic (e.g. doodle's send meeting link feature), this could be negated.
+
+What went right in our design was the calendar system (not including the time slider). All the users had agreed that the calendar feature was easy to use, the users had responded positively to the ability to click on the dates in calendar format. Users had found it was nice to see the days their events were planned on as a day on the calendar instead of just an option, as well it was simplistic and easy to use as they just had to click on the date to set the event to that date rather than input the information manually. Another feature that went right in our design was the View Results feature. Users liked the ability to see which invitees could not attend or which invitees have not responded yet. A problem from our users that we found from the pre-testing questionnaire was that most of the users had some problems with invitees not receiving or responding to the invite. The users found the View Results of RSVP feature to be a very simple and effective way to check whether or not invitees have received or responded to the invite.
+
+What went wrong with our design was the 24 hour format usage in the time slider for the calendar feature. As mentioned earlier in issues, the majority of users had expressed that they almost always use 12 hour format and while they are familiar with 24 hour format, they are not used to trying to set a time in 24 hour formatting; making it difficult for them to use.
+
+In subsequent iterations of the program, some aspects of the design we would look to modify would be the 24 hour formatting for the time slider and the ability to store invitee's email addresses or having some sort of way to create saved invitee lists. The 24 hour formatting was not well received with our users and we aim to make the LetsMeet very simple and efficient for the user; users should spend more time planning what day their event will be and what time it will be rather than trying to convert an unfamiliar time format to a familiar time format. The ability to store invitee's emails or save lists would be a feature that should be implemented in future updates. The original idea was for users to be able to have a simple way to schedule a meeting. As the application is used more often, users should have new features that will help keep the usage of the app simple. The ability to save invitee's emails to use as a quick reference for later meetings would greatly increase efficiency for the user, as they would not have to waste time and manually input email addresses of regular invites.
+
+Conclusion:
+
+Overall, our app LetsMeet was designed to be a simple and efficient way for users to create events, schedule them and also check on the status of invitees on whether they had received or responded to the invite. We had create this app with the features mentioned above with the ability to schedule meetings via clicking on a date on the calendar and viewing the results of the invitees' RSVP. We had found that while we had some design features that worked very well with our goal, we also had some features that were not as simple as we thought it would be when we implemented it. Some of the features that worked well for the user were the calendar feature and view results of RSVP; simultaneously a feature of the calendar that did not work well was the 24 hour formatting for the calendar's time slider. 
