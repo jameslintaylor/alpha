@@ -160,13 +160,12 @@
 Alpha is a proposed meeting scheduling application. 
 Existing `meeting request` style approaches have issues when scheduling meetings with more than 5 participants.
 Purpose built meeting schedulers can still be clunky leading to slow responses from participants.
-Our final product will be a functional chatbot effectively mimicking a human focused on scheduling.
 There will be many facets of design to be considered when creating the product, these duties will be divided among the four group members.
 \end{abstract}
 
 \keywords{\plainkeywords}
 
-\section{Proposal}
+\section{Introduction}
 
 \subsection{Topic Overview}
 
@@ -178,7 +177,7 @@ We propose a system that will leverage natural language processing to minimize d
 
 \subsection{Existing Products}
 
-There are issues in current processes that one has to undergo when responding to meeting invites and planning meetings with others. Tools such as Need To Meet and Google Calendar, though widely used, could be improved on.
+There were issues in the processes that one had to undergo when responding to meeting invites and planning meetings with others. Tools such as Need To Meet and Google Calendar, though widely used, could be improved on.
 
 Need To Meet, though simple to use on desktop, lacks a mobile friendly site. This causes friction in the interactions necessary to use the app and adds more work for the user; for example, the user now needs to zoom into the website and drag to navigate the input forms. 
 
@@ -187,32 +186,30 @@ Google Calendar and other systems like it (e.g. Microsoft Outlook) are not the m
 
 \subsection{Functionality of Final Product}
 
-The final product will offer the following features:
+The final product offers the following features:
 
 \subsubsection{Creation of Meeting Invite}
-Meeting invites will be sent from a web interface.
-The host will open the page, enter a name for their meeting, and some proposed times.
+Meeting invites can be sent from a web interface.
+The host opens the page, enters a name for their meeting, and some proposed times.
 The host will then enter the email or mobile numbers for their invitees.
 Invitations will then be sent to the invitees requesting they indicate their availability.
 
 \subsubsection{Response to Meeting Invitation}
 
 \textbf{Email:}
-After opening a link in the invite the user will be presented the proposed times and responses.
-They will be able to indicate if they cannot, can, or can if necessary attend each given time.
-They will also have the option of proposing a new time.
+After opening a link in the invite the user is be presented the proposed times and responses.
+They are be able to indicate if they cannot, or can attend each given time.
 
 \textbf{Text Message:}
 People invited by text message will receive a message containing the name of the meeting, 
 the proposed times, and a link to the same web interface as the email.
 For a speedier response, users can reply with a text response to indicate availability.
 Each option will be lettered, and the response will just include the relevant letters.
-Proposing new times, and indicating ``can if necessary`` will not be available over text.
 
 \subsection{Calling of Meeting}
 Once all invitees have responded the host will be informed 
-and will have the ability to call the meeting for a certain time.
-Once the host has chosen a time all invitees will be informed by the same means they were invited.
+and has the ability to call the meeting for a certain time.
+Once the host chooses a time all invitees will be informed by the same means they were invited.
 
 
 \subsection{Work Breakdown \& Duties}
@@ -227,12 +224,6 @@ Assets (icons, sound effects etc...) will be designed to in accordance with indu
 
 \item{\textbf{Application flow design}}
 Application flow will strive to be designed in such a way that the application can be navigated intuitively by as many users as possible.
-
-\item{\textbf{Natural language design}}
-Choosing keywords/hooks essential to the natural language portion of the application should be made keeping in mind as large of a set of end consumers as possible (these may include non english first language speakers etc.)
-
-\item{\textbf{Conversation design}}
-Conversations with our chat bot will be designed to be as `human` as possible. We are not claiming artificial intelligence is a main goal of the project, but we will design the bot to mimic something of that nature.
 
 \item{\textbf{Proof of concept implementation}}
 Seeing as we are to be providing a proof of concept to demo at the end of this project, we will inevitably need to do some implementation of the design. This may, but is by no means set a frontend implementation, a backend implementation, and api design.
@@ -249,7 +240,7 @@ Nick Morrison - Application flow design, Natural language design, Proof of conce
 Phillip Tran - Natural language design, Conversation design, Proof of concept implementation
 
 
-\section{Analysis of Existing Solutions}
+\section{Related Work}
 
 \subsubsection{Doodle Poll}
 \FloatBarrier
