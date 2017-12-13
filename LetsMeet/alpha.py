@@ -16,17 +16,17 @@ def fresh_id_for(table):
 
 
 def get_or_create_user(invitee_details):
-    invitee = invitees.get((Query().name == invitee_details['name']) &
-                           (Query().email == invitee_details['email']) &
-                           (Query().number == invitee_details['number']))
+    invitee = invitees.get((Query().name == invitee_details.get('name','Anonymous')) &
+                           (Query().email == invitee_details.get('email','')) &
+                           (Query().number == invitee_details.get('number','')))
     if invitee:
         return invitee['id']
     else:
         fresh_id = fresh_id_for(invitees)
         invitees.insert({'id': fresh_id,
-                         'name': invitee_details['name'],
-                         'email': invitee_details['email'],
-                         'number': invitee_details['number']})
+                         'name': invitee_details.get('name','Anonymous'),
+                         'email': invitee_details.get('email',''),
+                         'number': invitee_details.get('number','')})
         return fresh_id
 
 
