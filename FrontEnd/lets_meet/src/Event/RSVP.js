@@ -12,6 +12,7 @@ import Logo from '../images/Logo.svg';
 import ProgressArrow from '../images/Progress_Arrow.svg';
 import './Event.css';
 
+import { vote } from './another-file.js'
 
 // James is actually doing this because fuck React and its paradigms
 // for a second
@@ -101,7 +102,8 @@ class Section2 extends React.Component {
 
                 const submit = () => {
 // make a push to the server here but I'm tired
-// axios({})
+      // axios({})
+      vote(_name, this.props.managedEvent.id, _selections)
       this.props.nextSection()
     };
 
