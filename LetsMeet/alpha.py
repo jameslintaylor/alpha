@@ -95,7 +95,7 @@ def read_event(event_id):
 
 
 @app.route('/link/<link_id>/', methods=['GET'])
-def read_event(link_id):
+def link_event(link_id):
     event = events.get(Query().link == int(link_id))
     if not event:
         return '', 404
