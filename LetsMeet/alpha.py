@@ -73,7 +73,7 @@ def inflate_event(event):
 '''
 
 
-@app.route('/event/', methods=['POST', 'OPTIONS'])
+@app.route('/event/', methods=['POST'])
 def create_event():
     event = request.get_json()
     event_invitees = event['invitees']
@@ -85,7 +85,7 @@ def create_event():
     return jsonify(event)
 
 
-@app.route('/event/<event_id>/', methods=['GET', 'OPTIONS'])
+@app.route('/event/<event_id>/', methods=['GET'])
 def read_event(event_id):
     event = events.get(Query().id == int(event_id))
     if not event:
@@ -94,7 +94,7 @@ def read_event(event_id):
     return jsonify(event)
 
 
-@app.route('/event/<event_id>/', methods=['PUT', 'OPTIONS'])
+@app.route('/event/<event_id>/', methods=['PUT'])
 def update_event(event_id):
     event = events.get(Query().id == int(event_id))
     if not event:
@@ -104,7 +104,7 @@ def update_event(event_id):
     return jsonify(event)
 
 
-@app.route('/event/<event_id>/', methods=['DELETE', 'OPTIONS'])
+@app.route('/event/<event_id>/', methods=['DELETE'])
 def delete_event(event_id):
     if events.remove(Query().id == int(event_id)):
         return '', 204
@@ -125,8 +125,8 @@ def delete_event(event_id):
 '''
 
 
-@app.route('/event/<event_id>/vote/<invitee_id>/', methods=['POST', 'OPTIONS'])
-@app.route('/event/<event_id>/vote/', defaults={'invitee_id': None}, methods=['POST', 'OPTIONS'])
+@app.route('/event/<event_id>/vote/<invitee_id>/', methods=['POST'])
+@app.route('/event/<event_id>/vote/', defaults={'invitee_id': None}, methods=['POST'])
 def make_vote(event_id, invitee_id):
     event = events.get(Query().id == int(event_id))
     if not event:
@@ -165,7 +165,7 @@ def make_vote(event_id, invitee_id):
 '''
 
 
-@app.route('/invitee/', methods=['POST', 'OPTIONS'])
+@app.route('/invitee/', methods=['POST'])
 def create_invitee():
     invitee = request.get_json()
     given_id = invitee['id']
@@ -175,7 +175,7 @@ def create_invitee():
     return jsonify(invitee)
 
 
-@app.route('/invitee/<invitee_id>/', methods=['GET', 'OPTIONS'])
+@app.route('/invitee/<invitee_id>/', methods=['GET'])
 def read_invitee(invitee_id):
     invitee = invitees.get(Query().id == int(invitee_id))
     if not invitee:
@@ -183,7 +183,7 @@ def read_invitee(invitee_id):
     return jsonify(invitee)
 
 
-@app.route('/invitee/<invitee_id>/', methods=['PUT', 'OPTIONS'])
+@app.route('/invitee/<invitee_id>/', methods=['PUT'])
 def update_invitee(invitee_id):
     invitee = invitees.get(Query().id == int(invitee_id))
     if not invitee:
@@ -194,7 +194,7 @@ def update_invitee(invitee_id):
     return jsonify(invitee)
 
 
-@app.route('/invitee/<invitee_id>/', methods=['DELETE', 'OPTIONS'])
+@app.route('/invitee/<invitee_id>/', methods=['DELETE'])
 def delete_invitee(invitee_id):
     if invitees.remove(Query().id == int(invitee_id)):
         return '', 204
