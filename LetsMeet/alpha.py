@@ -153,6 +153,8 @@ def make_vote(event_id, invitee_id):
     if invitee_id not in event['invitees']: event['invitees'].append(invitee_id)
 
     for slot in event['timeslots']:
+        slot.setdefault('yes',[])
+        slot.setdefault('no',[])
         if vote_data.get(str(slot['id']), False):
             slot['yes'].append(invitee_id)
             if invitee_id in slot['no']: slot['no'].remove(invitee_id)
