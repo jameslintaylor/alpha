@@ -77,7 +77,7 @@ const resultForDate = (popup, invitees, date) => {
   return (
     <div key={date.id} className="result-container">
       <div className="timeslot-container">
-        <TimeSlot />
+        <TimeSlot start={date.start} end={date.end}/>
       </div>
       {percentageBar(pct)}
       <button onClick={() => popup(selectDialogContents)}> Select </button>
@@ -169,19 +169,10 @@ const mockDates = [
   }
 ]
 
-// idk what I'm doing anymore
-const deserializethisdatebruv = ({id, start, end, yes, no}) => ({
-  id,
-  start: Date(start),
-  end: Date(end),
-  yes,
-  no
-})
-
 const mapStateToProps = ({ managedEvent }) => {
   return {
     invitees: managedEvent.invitees,
-    dates: managedEvent.timeslots.map(deserializethisdatebruv)
+    dates: managedEvent.dates
   }
 }
 
