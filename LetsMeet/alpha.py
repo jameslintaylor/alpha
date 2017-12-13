@@ -76,6 +76,9 @@ def inflate_event(event):
 @app.route('/event/', methods=['POST'])
 def create_event():
     event = request.get_json()
+    for slot in event['timeslots']:
+        slot.setdefault('yes',[])
+        slot.setdefault('no', [])
     event_invitees = event['invitees']
     invitee_ids = list(map(get_or_create_user, event_invitees))
     event['invitees'] = invitee_ids
@@ -153,8 +156,6 @@ def make_vote(event_id, invitee_id):
     if invitee_id not in event['invitees']: event['invitees'].append(invitee_id)
 
     for slot in event['timeslots']:
-        slot.setdefault('yes',[])
-        slot.setdefault('no',[])
         if vote_data.get(str(slot['id']), False):
             slot['yes'].append(invitee_id)
             if invitee_id in slot['no']: slot['no'].remove(invitee_id)
