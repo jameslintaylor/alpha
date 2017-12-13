@@ -12,6 +12,12 @@ import Logo from '../images/Logo.svg';
 import ProgressArrow from '../images/Progress_Arrow.svg';
 import './Event.css';
 
+
+// James is actually doing this because fuck React and its paradigms
+// for a second
+var _name = ""
+var _selections = new Set([])
+
 class RSVP extends React.Component{
 
   componentWillMount(){
@@ -22,7 +28,7 @@ class RSVP extends React.Component{
     return (
       <div className="page" id="rsvp">
         <a href="/"><img src={Logo} alt="logo" id="top-logo" /></a>
-        <h1 id="process-title">Event Name</h1>
+        <h1 id="process-title">{this.props.managedEvent.name}</h1>
         <ProgressIndicator count={3}/>
         <div className="content">
           <SectionPager>
@@ -52,7 +58,10 @@ class Section1 extends React.Component{
       }
     };
 
-    const change = (text)=>{this.setState({name:text})}
+    const change = (text) => {
+      this.setState({name:text})
+      _name = text;
+    }
 
     return (
       <div>
@@ -73,19 +82,33 @@ class Section1 extends React.Component{
         }
 }
 
+const _toggleDate = (id) => {
+_selections.has(id) && _selections.delete(id) || _selections.add(id)
+}
+
 const timeslotComponent = (date) => (
-<TimeSlot index={date.id} start={date.start} end={date.end} /> 
+<TimeSlot 
+  key={date.id} 
+  index={date.id} 
+  start={date.start} 
+  end={date.end}
+  onToggle={() => _toggleDate(date.id)}/> 
 )
 
 class Section2 extends React.Component {
         render(){
 
 
-                const submit = ()=>{this.props.nextSection()};
+                const submit = () => {
+// make a push to the server here but I'm tired
+// axios({})
+      this.props.nextSection()
+    };
+
                 const back = ()=>{this.props.prevSection()};
                 return (
                         <div>
-                          <h2>When are you available, Name?</h2>
+                          <h2>When are you available, {_name}?</h2>
                           <div id="timeslot-container">
 
 {this.props.managedEvent.dates.map(timeslotComponent)}
