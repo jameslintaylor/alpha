@@ -27,3 +27,11 @@ export const dismissPopup = () => {
     type: 'DISMISS_POPUP'
   } 
 }
+
+export const setManagedEvent = (event) => {
+  console.log("setting managed event!", event);
+  return {
+    type: 'SET_MANAGED_EVENT',
+    event: event
+  }
+}

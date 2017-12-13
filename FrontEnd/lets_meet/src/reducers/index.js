@@ -30,3 +30,12 @@ export const popup = (state = null, action) => {
     return state
   }
 }
+
+export const managedEvent = (state = {}, action) => {
+  switch (action.type) {
+  case 'SET_MANAGED_EVENT':
+    return action.event
+  default:
+    return state
+  }
+}

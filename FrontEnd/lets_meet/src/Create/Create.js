@@ -27,6 +27,7 @@ class Create extends React.Component{
   }
 
   createNewEvent(){
+
     axios({
       url: "http://52.15.63.64:5000/event/",
       method: "post",
@@ -91,8 +92,7 @@ const mstp = state =>({
   currentStage: state.progressIndicator.index,
   event: {
     ...state.createEvent,
-    timeslots: state.dates,
-    link: state.eventLink
+    timeslots: state.dates
   }
 });
 

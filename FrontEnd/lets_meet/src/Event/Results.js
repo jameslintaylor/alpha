@@ -87,6 +87,8 @@ const resultForDate = (popup, invitees, date) => {
 
 const Results = ({invitees, dates, popup}) => {
 
+  console.log("the dates bruv", dates);
+
   // kind of a poor choice was made when structuring state but oh well
   let { pending } = splitByStatus(invitees, dates[0])
   let awaitingText = `Awaiting ${pending.length} Response${pending.length > 1 ? 's' : ''} from Invitees`
@@ -155,22 +157,33 @@ const mockDates = [
     id: 0,
     start: Date("2017-09-30T10:30:00"),
     end: Date("2017-09-30T11:30:00"),
-    yes: [0, 1],
-    no: [2, 3]
+    yes: [1],
+    no: [2]
   },
   {
     id: 1,
     start: Date("2017-09-31T15:30:00"),
     end: Date("2017-09-31T16:30:00"),
-    yes: [1, 3, 4],
-    no: [0]
+    yes: [2],
+    no: [1]
   }
 ]
 
-const mapStateToProps = (state) => ({
-  invitees: mockInvitees,
-  dates: mockDates
+// idk what I'm doing anymore
+const deserializethisdatebruv = ({id, start, end, yes, no}) => ({
+  id,
+  start: Date(start),
+  end: Date(end),
+  yes,
+  no
 })
+
+const mapStateToProps = ({ managedEvent }) => {
+  return {
+    invitees: managedEvent.invitees,
+    dates: managedEvent.timeslots.map(deserializethisdatebruv)
+  }
+}
 
 const mapDispatchToProps = (dispatch) => ({
   popup: (body) => dispatch(showPopup(body))
