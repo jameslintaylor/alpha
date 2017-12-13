@@ -5,6 +5,7 @@ from flask_cors import CORS
 from tinydb.operations import delete
 
 app = Flask(__name__)
+app.url_map.strict_slashes = False
 CORS(app)
 db = TinyDB('events.json')
 events = db.table('events')
