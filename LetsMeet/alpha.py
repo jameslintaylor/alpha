@@ -102,8 +102,7 @@ def link_event(link_id):
     event = events.get(Query().link == int(link_id))
     if not event:
         return '', 404
-    inflate_event(event)
-    return jsonify(event)
+    return jsonify({'id': event['id']})
 
 
 @app.route('/event/<event_id>/', methods=['PUT'])
