@@ -9,12 +9,14 @@ import ProgressArrow from '../images/Progress_Arrow.svg';
 import './Event.css';
 
 class EventManagement extends React.Component{
+
   render(){
-    const rsvp = ()=>{
+
+    const rsvp = () => {
       this.props.push(this.props.location.pathname + "/rsvp")
     };
 
-    const results = ()=>{
+    const results = () => {
       this.props.push(this.props.location.pathname + "/results")
     };
 
@@ -22,7 +24,7 @@ class EventManagement extends React.Component{
       <div className="page" id="event-management">
         <a href="/"><img src={Logo} alt="logo" id="top-logo" /></a>
         <div className="content">
-          <h1>{this.props.event.name}</h1>
+          <h1>{this.props.managedEvent.name}</h1>
           <div className="padded-top">
             <button onClick={rsvp}>RSVP</button><br/>
             <button onClick={results}>view results</button><br/>

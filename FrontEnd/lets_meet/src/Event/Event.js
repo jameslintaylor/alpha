@@ -32,15 +32,6 @@ class Event extends React.Component{
 
 }
 
-// idk what I'm doing anymore
-const deserializethisdatebruv = ({id, start, end, yes, no}) => ({
-  id,
-  start: new Date(start),
-  end: new Date(end),
-  yes,
-  no
-})
-
 class NoCode extends React.Component{
 
   componentWillMount(){
@@ -51,20 +42,12 @@ class NoCode extends React.Component{
     
     const submit = ()=>{
 
-      console.log("ok nice!");
-      
       axios({
         url: `http://52.15.63.64:5000/link/${this.state.code}`,
         method: "get",
         contentType: 'application/json',
       })
         .then((response) =>{
-
-          // deserialize the dates here because I don't care
-          this.props.manageEvent({
-            ...response.data,
-            dates: response.data.timeslots.map(deserializethisdatebruv)
-          })
           this.props.push("/event/" + response.data.id)
         })
         .catch((error)=>{

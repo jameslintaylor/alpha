@@ -85,10 +85,10 @@ const resultForDate = (popup, invitees, date) => {
   )
 }
 
-const Results = ({invitees, dates, popup}) => {
+const Results = ({ popup, managedEvent }) => {
 
-  console.log("the dates bruv", dates);
-
+  const { dates, invitees } = managedEvent
+  
   // kind of a poor choice was made when structuring state but oh well
   let { pending } = splitByStatus(invitees, dates[0])
   let awaitingText = `Awaiting ${pending.length} Response${pending.length > 1 ? 's' : ''} from Invitees`
@@ -169,15 +169,8 @@ const mockDates = [
   }
 ]
 
-const mapStateToProps = ({ managedEvent }) => {
-  return {
-    invitees: managedEvent.invitees,
-    dates: managedEvent.dates
-  }
-}
-
 const mapDispatchToProps = (dispatch) => ({
   popup: (body) => dispatch(showPopup(body))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Results);
+export default connect(null, mapDispatchToProps)(Results);

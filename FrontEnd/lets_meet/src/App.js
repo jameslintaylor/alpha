@@ -6,9 +6,11 @@ import { Route, Switch } from 'react-router'
 import createHistory from 'history/createBrowserHistory'
 import {ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
 
+import { withManagedEvent } from './Components/helpers'
+
 import {reducer as progressIndicator} from './Components/ProgressIndicator';
 import {reducer as createEvent} from './Create/reducers';
-import { dates, popup, managedEvent } from './reducers'
+import { dates, popup } from './reducers'
 
 import Home from './Home/Home';
 import Create from './Create/Create';
@@ -28,7 +30,6 @@ const store = createStore(
     routing: routerReducer,
     progressIndicator,
     createEvent,
-    managedEvent,
     dates,
     popup,
   }),   
@@ -55,9 +56,9 @@ class AppContent extends Component{
           <Route name="home" exact path="/" component={Home}/>
           <Route name="create" exact path="/create" component={Create}/>
           <Route name="event" exact path="/event" component={Event}/>
-          <Route name="event-management" exact path="/event/:code" component={EventManagement}/> 
-          <Route name="rsvp" path="/event/:code/rsvp" component={RSVP} />
-          <Route name="results" path="/event/:code/results" component={Results} />
+          <Route name="event-management" exact path="/event/:id" component={withManagedEvent(EventManagement)}/> 
+          <Route name="rsvp" path="/event/:id/rsvp" component={withManagedEvent(RSVP)} />
+          <Route name="results" path="/event/:id/results" component={withManagedEvent(Results)} />
         </Switch>        
       </ConnectedRouter>
     )
